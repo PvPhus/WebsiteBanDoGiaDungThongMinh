@@ -1,0 +1,273 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+header {
+    justify-content: space-between;
+    padding: 12px 50px;
+    height: 70;
+    align-items: center;
+}
+
+.help {
+    height: 25px;
+    display: flex;
+    background-color: gainsboro;
+    align-items: center;
+    justify-content: center;
+}
+
+.right-help {
+    margin-left: 250px;
+    display: flex;
+}
+
+.right-help li {
+    padding: 0 12px;
+}
+
+.right-help li:hover {
+    text-decoration: underline;
+}
+
+.fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+}
+
+.function {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.function div {
+    padding: 0 10px;
+}
+
+.logo img {
+    height: 60px;
+    width: 250px;
+}
+
+.search-input {
+    height: 43px;
+    width: 250px;
+    border: 1px solid #444;
+    outline: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+}
+
+.search-button {
+    height: 43px;
+    width: 43px;
+    background-color: #fd601a;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.refund img {
+    height: 75px;
+    width: 630px;
+}
+
+.menu {
+    padding: 10px;
+    display: flex;
+    border: 1px solid #444;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.menu li {
+    padding: 0 12px;
+    position: relative;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.menu>li:hover .sub-menu {
+    visibility: visible;
+    top: 20px;
+}
+
+.sub-menu {
+    position: absolute;
+    width: 250px;
+    border: 1px solid #ccc;
+    padding: 10px 0 10px 20px;
+    visibility: hidden;
+    top: 50px;
+    transition: 0.2s;
+    background-color: white;
+    border-radius: 0px 0px 20px 20px;
+}
+
+.sub-menu ul {
+    padding-left: 20px;
+}
+
+.menu a:hover {
+    color: red;
+    transition: color 0.3s ease;
+}
+
+.sub-menu li a {
+    font-size: 12px;
+    font-weight: bold;
+    display: block;
+    line-height: 20px;
+}
+
+.sub-menu ul li a {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+.cart {
+    background-color: #fd601a;
+    color: white;
+    text-align: center;
+    width: 165px;
+    height: 65px;
+    display: flex;
+    font-size: 15px;
+
+}
+
+.cart-content {
+    text-align: right;
+    margin-top: 17px;
+}
+
+.cart-icon {
+    position: relative;
+    margin-top: 20px;
+    margin-left: -15px;
+}
+
+.icon img {
+    width: 35px;
+    height: 35px;
+}
+
+.count-products {
+    display: inline-flex;
+    position: absolute;
+    left: 30px;
+    top: 4px;
+    align-items: center;
+    height: 18px;
+    width: 20px;
+    font-size: 11px;
+    text-align: center;
+    background: #008848;
+    border-radius: 50%;
+    justify-content: center;
+    color:white;
+}
+
+.register-form {
+    width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.register-form h1 {
+    text-align: center;
+    padding: 10px;
+}
+
+.register-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.register-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.register-form input[type="text"],
+.register-form input[type="number"],
+.register-form input[type="tel"],
+.register-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0px 0px 3px #c7c7c7;
+    margin-bottom: 10px;
+}
+
+.register-form button[type="submit"] {
+    padding: 10px;
+    background-color: #fd601a;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.register-form button[type="submit"]:hover {
+    background-color: orangered;
+}
+
+.Back-Login {
+    padding: 10px;
+}
+
+.Back-Login h5 {
+    font-weight: normal;
+}
+
+.Back-Login a {
+    color: #fd601a;
+    font-weight: normal;
+}
+
+.Back-Login a:hover {
+    text-decoration: underline;
+}
+
+.BanQuyen {
+    display: flex;
+}
+
+.BanQuyenWeb h5 {
+    padding: 20px;
+    font-weight: normal;
+}
+
+.KenhXaHoi {
+    margin-top: 20px;
+    display: flex;
+    column-gap: 10px;
+    margin-left: 650px;
+}
