@@ -1,4 +1,10 @@
 <?php
+include "config.php";
+?>
+
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 class Database
 {
     public $host = DB_HOST;
@@ -18,8 +24,8 @@ class Database
     private function connectDB()
     {
         $this->link = new mysqli($this->host, $this->user, $this->pass, $this->dbname);
-        if (!$this->link) {
-            $this->error = "connect fail" . $this->link->connect_error;
+        if ($this->link->connect_error) {
+            $this->error = "Connect fail" . $this->link->connect_error;
             return false;
         }
     }

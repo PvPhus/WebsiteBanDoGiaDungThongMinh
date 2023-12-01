@@ -29,14 +29,14 @@ class session
             header("Location:login.php");
         }
     }
-    // public static function checkLogin()
-    // {
-    //     self::init();
-    //     if (self::get("login") == false) {
-    //         self::destroy();
-    //         header("Location:index.php");
-    //     }
-    // }
+    public static function checkLogin()
+    {
+        self::init();
+        if (self::get("login") == false) {
+            self::destroy();
+            header("Location:index.php");
+        }
+    }
     public static function destroy()
     {
         session_destroy();
