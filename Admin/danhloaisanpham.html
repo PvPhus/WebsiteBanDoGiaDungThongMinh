@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Quản Trị</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="../Giao diện chính/index.html"><img src="../Admin/images/logo-web.webp" alt=""></a></div>
+        <div class="menu">           
+            <ul>
+                <li><a href="">Thông Báo</a></li>
+                <li><a href="../Admin/danhloaisanpham.html">Quản Lý Sản Phẩm</a></li>
+                <li><a href="../Admin/quanlydondathang.html">Quản Lý Đơn Hàng Bán</a></li>
+                <li><a href="../Admin/quanlydonhangnhap.html">Quản Lý Đơn Hàng Nhập</a></li>   
+                <li><a href="../Admin/quanlynhanvien.html">Quản Lý Nhân Viên</a></li>
+                <li><a href="../Admin/quanlykhachhang.html">Quản Lý Khách Hàng</a></li>                                              
+                <li><a href="../Login/login.html">Đăng Xuất</a></li>
+            </ul>           
+        </div>
+    </header>
+    <section class="admin-content">
+        <div class="left-admin-content">
+            <ul>              
+                <li><a>LOẠI GIA DỤNG</a>
+                    <ul>
+                        <li><a href="../Admin/danhloaisanpham.html">Quản Lý Danh Loại</a></li>
+                    </ul>
+                </li>
+                <li><a>SẢN PHẨM</a>
+                    <ul>
+                        <li><a href="../Admin/danhsachsanpham.html">Quản Lý Danh Sách</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="right-admin-content" ng-app="QLDSLSP" ng-controller="CategoryController">
+            <h1>QUẢN LÝ LOẠI SẢN PHẨM</h1>
+            <div class="right-admin-content-category_add">
+                <form id="categoryForm">
+                    <input type="number" id="maLoai" placeholder="Nhập mã loại">
+                    <input type="text" id="tenLoai" placeholder="Nhập loại sản phẩm">
+                    <input type="number" id="soLuongLoaiTon" placeholder="Nhập số lượng loại tồn">
+                    <button type="button" onclick="addCategory()">Thêm</button>
+                </form>
+            </div>
+            <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
+            <div class="right-admin-content-category_list">
+                <table id="TABLEDLSP">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>ID</th>
+                            <th>TÊN LOẠI SẢN PHẨM</th>
+                            <th>SỐ LƯỢNG LOẠI TỒN</th>
+                            <th>Tùy Biến</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categoryTableBody">                       
+                        <tr ng-repeat="category in categories">
+                            <td>{{$index + 1}}</td>
+                            <td>{{category.maLoai}}</td>
+                            <td>{{category.tenLoai}}</td>
+                            <td>{{category.soLuongLoaiTon}}</td>
+                            <td>
+                                <button ng-click="editCategory(category.id)" >Sửa</button>||<button ng-click="deleteCategory(categoryId)">Xóa</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <button ng-click="prevPage()" ng-disabled="currentPage === 1">Trang Trước</button>
+                <span>{{currentPage}}</span>
+                <button ng-click="nextPage()" ng-disabled="currentPage === totalPages">Trang Sau</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+<script src="../Admin/admin.js"></script>

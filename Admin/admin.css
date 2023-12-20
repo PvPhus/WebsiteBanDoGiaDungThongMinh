@@ -1,63 +1,173 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: black;
     outline: none;
 }
-a{
+
+a {
     text-decoration: none;
 }
-ul{
+
+ul {
     list-style: none;
 }
-header{
-    height: 100px;
+
+header {
+    height: auto;
     width: 100vw;
     border-bottom: 1px solid #444;
-    text-align: center;
+    display: block;
+    display: flex;
+    background-color: antiquewhite;
 }
-.admin-content{
-    padding-top:50px;
+
+header .logo img {
+    height: 60px;
+    width: 250px;
+    border-radius: 17px;
+    padding: 8px;
+}
+
+.menu ul {
+    display: flex;
+    margin-left: 30px;
+}
+
+.menu ul li {
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 9px;
+    background-color: aliceblue;
+}
+
+.menu ul li:hover {
+    background-color: #fd601a;
+
+    & a:hover {
+        color: white;
+    }
+}
+
+.admin-content {
+    padding-top: 10px;
     display: flex;
 }
-.left-admin-content{
-    background-color:antiquewhite;
-    width: 20%;
+
+.left-admin-content {
+    background-color: antiquewhite;
+    width: 12%;
     height: 100vh;
     padding: 30px 0px 0px 12px;
 }
-.left-admin-content >ul >li >a{
+
+.left-admin-content>ul>li>a {
     font-weight: bold;
 }
-.left-admin-content ul li{
+
+.left-admin-content ul li {
     margin: 6px 0px;
 }
-.left-admin-content ul ul{
+
+.left-admin-content ul ul {
     margin-left: 20px;
 }
-.right-admin-content{
-    width: 80%;
+
+.left-admin-content ul li ul li a:hover {
+    color: #fd601a;
+    background-color: beige;
+}
+
+.right-admin-content {
+    width: 88%;
     padding: 30px 0px 0px 12px;
 }
-.right-admin-content-category_add input{
+.right-admin-content-category_add{
+    display: flex;
+} 
+.right-admin-content-category_add>div{
+    height: 100px;
+    width: 100px;
+}
+.right-admin-content h1 {
+    text-align: center;
+}
+
+/*-----------------------------Them Loai San Pham-------------------------------*/
+.right-admin-content-category_add input {
     height: 30px;
     width: 200px;
     padding-left: 12px;
     margin-top: 20px;
 }
-.right-admin-content-category_add button{
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+#image-preview {
+    max-width: 100px;
+    max-height: 100px;
+    overflow: hidden; 
+}
+
+#image-preview img {
+    width: 100%;
+    height: auto; 
+}
+.right-admin-content-category_add button {
+
     display: block;
     margin-top: 10px;
     height: 30px;
     width: 100px;
     cursor: pointer;
-    background-color:brown;
+    background-color: brown;
     border: none;
     color: white;
 }
-.right-admin-content-category_add button:hover{
+
+.right-admin-content-category_add button:hover {
     background-color: transparent;
     border: 1px solid brown;
     color: brown;
+}
+
+/*-------------------------Danh Muc San Pham---------------------------*/
+.right-admin-content-category_list table {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.right-admin-content-category_list table tr {
+    height: auto;
+}
+.right-admin-content-category_list table tr th{
+    height: 35px;
+}
+.right-admin-content-category_list table tr th,td {
+    border: 1px solid #444;
+    padding: 5px;
+}
+.right-admin-content-category_list table tr td img{
+    padding: 10px;
+    height: 100px;
+    width: 100px;
+}
+table {
+    border-collapse: collapse;
+}
+
+.right-admin-content-category_list button {
+    height: 18px;
+    width: 40px;
+    background-color: #444;
+    color: white;
+}
+
+.right-admin-content-category_list button:hover {
+    background-color: darkgray;
+    color: aqua;
 }

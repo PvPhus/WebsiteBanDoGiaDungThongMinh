@@ -16,7 +16,7 @@ btnLogin.onclick = function login() {
         alert('Đăng nhập thành công!');
         // Phân quyền và chuyển hướng trang
         if (user.username === 'admin') {         
-            window.location.href = '../Admin/admin.html';
+            window.location.href = '../Admin/themdanhmuc.html';
             alert('Chào Admin!'); 
         } else if (user.role === 'user') {
             window.location.href = '../Giao diện chính/index.html';
