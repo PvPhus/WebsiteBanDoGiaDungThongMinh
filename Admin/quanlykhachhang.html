@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Quản Trị</title>
     <link rel="stylesheet" href="admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
 
 <body>
@@ -25,35 +26,46 @@
     </header>
     <section class="admin-content">
         <div class="left-admin-content"></div>  
-        <div class="right-admin-content">
+        <div class="right-admin-content" ng-app="QLDSKH" ng-controller="KhachHangController">
             <h1>QUẢN LÝ KHÁCH HÀNG</h1>
             <div class="right-admin-content-category_add">               
-                <form action="" method="POST">
-                    <input type="text" name="" id="MaLSP" placeholder="Nhập mã loại">
-                    <input type="text" name="" id="TenLSP" placeholder="Nhập loại sản phẩm">
-                    <button onclick="AddLSP()" type="submit">Thêm</button>
+                <form id="KhachHangFrom">
+                    <input type="number" id="maKhachHang" ng-model="newKhachHang.maKhachHang" placeholder="Nhập mã khách hàng">
+                    <input type="text" id="tenKhachHang" ng-model="newKhachHang.tenKhachHang" placeholder="Nhập tên khách hang">
+                    <input type="text" id="diaChi" ng-model="newKhachHang.diaChi" placeholder="Địa chỉ">
+                    <input type="number" id="soDienThoai" ng-model="newKhachHang.soDienThoai" placeholder="Số điện thoại">
+                    <button type="submit" ng-click="addKhachHang()">Thêm</button>
                 </form>
             </div>
             <h1>DANH SÁCH THÔNG TIN KHÁCH HÀNG</h1>
-            <div class="right-admin-content-category_list">
-                <table id="myTable">
+            <div class="right-admin-content-category_list ">
+                <table id="TABLEDSKH">
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>ID</th>
-                            <th>LOẠI SẢN PHẨM</th>
-                            <th>Tùy Biến</th>
+                            <th>MÃ KHÁCH HÀNG</th>
+                            <th>TÊN KHÁCH HÀNG</th>
+                            <th>ĐỊA CHỈ</th>
+                            <th>SỐ ĐIỆN THOẠI</th>
+                            <th>TÙY BIẾN</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Thong Minh</td>
-                            <td><button class="btnedit">Sửa</button> || <button class="btndelete">Xóa</button></td>
+                    <tbody id ="KhachHangTableBody">
+                        <tr ng-repeat="khachhang in displayKhachHangs">
+                            <td>{{$index + 1}}</td>
+                            <td>{{khachhang.maKhachHang}}</td>
+                            <td>{{khachhang.tenKhachHang}}</td>
+                            <td>{{khachhang.diaChi}}</td>
+                            <td>{{khachhang.soDienThoai}}</td>
+                            <td><button ng-click="btneditKH">Sửa</button> || <button ng-click="btndeleteKH">Xóa</button></td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="pagination">
+                <button ng-click="prevPage()" ng-disabled="currentPage === 1">Trang Trước</button>
+                <span>{{currentPage}}</span>
+                <button ng-click="nextPage()" ng-disabled="currentPage === totalPages">Trang Sau</button>
             </div>
         </div>
     </section>

@@ -39,14 +39,45 @@
                 </li>
             </ul>
         </div>
-        <div class="right-admin-content" ng-app="QLDSLSP" ng-controller="CategoryController">
+
+        <!-- <div class="right-admin-content">
             <h1>QUẢN LÝ LOẠI SẢN PHẨM</h1>
             <div class="right-admin-content-category_add">
                 <form id="categoryForm">
                     <input type="number" id="maLoai" placeholder="Nhập mã loại">
-                    <input type="text" id="tenLoai" placeholder="Nhập loại sản phẩm">
+                    <input type="text" id="tenLoai" placeholder="Nhập tên loại sản phẩm">
                     <input type="number" id="soLuongLoaiTon" placeholder="Nhập số lượng loại tồn">
-                    <button type="button" onclick="addCategory()">Thêm</button>
+                    <button type="button" onclick="addLSP()">Thêm</button>
+                </form>
+            </div>
+            <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
+            <div class="right-admin-content-category_list">
+                <table id="TABLEDLSP">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>ID</th>
+                            <th>TÊN LOẠI SẢN PHẨM</th>
+                            <th>SỐ LƯỢNG LOẠI TỒN</th>
+                            <th>Tùy Biến</th>
+                        </tr>
+                    </thead>
+                    <tbody id="categoryTableBody">
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div> -->
+
+
+        <div class="right-admin-content" ng-app="QLDSLSP" ng-controller="CategoryController">
+            <h1>QUẢN LÝ LOẠI SẢN PHẨM</h1>
+            <div class="right-admin-content-category_add">
+                <form id="categoryForm">
+                    <input type="number" id="maLoai" ng-model="newCategory.maLoai" placeholder="Nhập mã loại">
+                    <input type="text" id="tenLoai" ng-model="newCategory.tenLoai" placeholder="Nhập tên loại sản phẩm">
+                    <input type="number" id="soLuongLoaiTon" ng-model="newCategory.soLuongLoaiTon" placeholder="Nhập số lượng loại tồn">
+                    <button type="submit" ng-click="addCategory()">Thêm {{submit}}</button>
                 </form>
             </div>
             <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
@@ -62,17 +93,17 @@
                         </tr>
                     </thead>
                     <tbody id="categoryTableBody">                       
-                        <tr ng-repeat="category in categories">
+                        <tr ng-repeat="category in displayedCategories">
                             <td>{{$index + 1}}</td>
                             <td>{{category.maLoai}}</td>
                             <td>{{category.tenLoai}}</td>
                             <td>{{category.soLuongLoaiTon}}</td>
                             <td>
-                                <button ng-click="editCategory(category.id)" >Sửa</button>||<button ng-click="deleteCategory(categoryId)">Xóa</button>
+                                <button ng-click="editCategory(category)" >Sửa</button>
                             </td>
                         </tr>
                     </tbody>
-                </table>
+                </table>              
             </div>
             <div class="pagination">
                 <button ng-click="prevPage()" ng-disabled="currentPage === 1">Trang Trước</button>
@@ -84,3 +115,4 @@
 </body>
 </html>
 <script src="../Admin/admin.js"></script>
+<script src="../Admin/global.js"></script>

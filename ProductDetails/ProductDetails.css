@@ -176,7 +176,7 @@ header {
     height: 35px;
 }
 
-.total-products {
+.count-products {
     display: inline-flex;
     position: absolute;
     left: 30px;
@@ -200,13 +200,11 @@ header {
     padding: 20px;
     margin-left: 150px;
 }
-
-.Main-ProductDetails .left-ProductDetails {
-    width: 40%;
-    height: 200px;
-    background-color: #fd601a;
+.Main-ProductDetails .left-ProductDetails img{
+    height: 400px;
+    width: 400px;
+    border-radius: 10px;
 }
-
 .Main-ProductDetails .right-ProductDetails {
     height: auto;
     width: 60%;
@@ -333,16 +331,10 @@ header {
 .input-number-products {
     display: flex;
 }
-
-.numberheader {
-    margin: 8px;
-}
-
-.input-number-products input,
-.input-number-products button {
+.input-number-products input, .input-number-products button {
     margin: 5px;
-    height: 20px;
-    width: 50px;
+    height: 15px;
+    width: 35px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

@@ -42,19 +42,27 @@
             </ul>
         </div>
         <div class="right-admin-content" ng-app="QLDSSP" ng-controller="ProductController">
-            <h1>THÊM SẢN PHẨM</h1>
+            <!-- Các trường và nút thêm sản phẩm -->
+            <h1>QUẢN LÝ SẢN PHẨM</h1>
             <div class="right-admin-content-category_add">
+                <!-- Các trường nhập liệu -->
                 <input type="number" ng-model="maSanPham" placeholder="Mã sản phẩm">
                 <input type="text" ng-model="tenSanPham" placeholder="Tên sản phẩm">
-                <select style="width:150px;height:30px;margin-top: 20px;" ng-model="loaiSanPham">
-                    <!-- Option sẽ được tạo động từ localStorage -->
+                <select style="width:150px;height:30px;margin-top: 20px;" ng-model="selectedCategoryId"
+                    ng-options="category.id as category.tenLoai for category in categories"
+                    ng-change="getCategoryDetails()">
                 </select>
                 <input type="number" ng-model="gia" placeholder="Giá">
                 <input type="text" ng-model="moTa" placeholder="Mô tả">
-                <div id="image-preview"></div>
-                <input type="file" id="image-input" onchange="showImagePreview()" ng-model="imageData">
+                <div id="image-preview">
+                    <img ng-src="{{imagePreview}}" alt="Image Preview" ng-show="imagePreview">
+                </div>
+                <input type="file" id="image-input" ng-model="imageData" ng-change="showImagePreview()" accept="image/*">
+                <!-- Sử dụng ng-click để gọi hàm addProduct -->
                 <button ng-click="addProduct()" type="submit">Thêm</button>
             </div>
+        
+            <!-- Tiêu đề và danh sách sản phẩm -->
             <h1>DANH SÁCH SẢN PHẨM</h1>
             <div class="right-admin-content-category_list">
                 <table id="TableDSSP">
@@ -72,7 +80,7 @@
                     </thead>
                     <tbody id="ListProducts">
                         <!-- Sử dụng ng-repeat để lặp qua danh sách sản phẩm -->
-                        <tr ng-repeat="product in products">
+                        <tr ng-repeat="product in displayedProducts">
                             <td>{{$index + 1}}</td>
                             <td>{{product.maSanPham}}</td>
                             <td>{{product.tenSanPham}}</td>
@@ -80,11 +88,17 @@
                             <td>{{product.gia}}</td>
                             <td>{{product.moTa}}</td>
                             <td>{{product.hinhAnh}}</td>
-                            <td> <button ng-click="updateProduct(product.id)">Sửa</button>||<button ng-click="deleteProduct(product.id)">Xóa</button></td>
+                            <!-- Sử dụng ng-click để gọi hàm updateProduct và deleteProduct -->
+                            <td>
+                                <button ng-click="updateProduct(product)">Sửa</button> ||
+                                <button ng-click="deleteProduct(product.id)">Xóa</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+        
+            <!-- Phân trang -->
             <div class="pagination">
                 <button ng-click="prevPage()" ng-disabled="currentPage === 1">Trang Trước</button>
                 <span>{{currentPage}}</span>
