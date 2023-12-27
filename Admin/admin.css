@@ -20,6 +20,7 @@ header {
     border-bottom: 1px solid #444;
     display: block;
     display: flex;
+    position: fixed;
     background-color: antiquewhite;
 }
 
@@ -52,14 +53,14 @@ header .logo img {
 }
 
 .admin-content {
-    padding-top: 10px;
+    padding-top: 70px;
     display: flex;
 }
 
 .left-admin-content {
     background-color: antiquewhite;
     width: 12%;
-    height: 100vh;
+    height: 90vh;
     padding: 30px 0px 0px 12px;
 }
 
@@ -94,7 +95,26 @@ header .logo img {
 .right-admin-content h1 {
     text-align: center;
 }
-
+.pagination{
+    float: right;
+    margin-right: 50px;
+}
+.pagination button{
+    margin-top: 9px;
+    height: 20px;
+    width: 40px;
+    text-align: center;
+    background-color:gainsboro;
+    color: #fd601a;
+    border-radius: 5px;
+    border: white;
+    padding: 3px;
+}
+.pagination button:hover{
+    
+    background-color: #fd601a;
+    color: white;
+}
 /*-----------------------------Them Loai San Pham-------------------------------*/
 .right-admin-content-category_add input {
     height: 30px;

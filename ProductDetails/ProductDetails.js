@@ -13,37 +13,27 @@ function decreaseQuantity() {
     }
 }
 
+function AddProduct() {
+    // Lấy giá trị của các phần tử trong HTML
+    var imgProduct = document.querySelector('.img-ProductDetail').src;
+    var nameProduct = document.querySelector('.name-Product').textContent;
+    var priceProduct = document.querySelector('.priceProduct').textContent;
+    var quantity = document.getElementById('quantity').value;
 
+    // Tạo một đối tượng để lưu các thông tin
+    var product = {
+        Img: imgProduct,
+        Name: nameProduct,
+        Price: priceProduct,
+        Quantity: quantity
+    };
 
-//Add products to cart, count products and count prices
-// document.addEventListener('DOMContentLoaded', function () {
-//     const addToCartButton = document.querySelector('.add-products-cart');
-//     const quantityInput = document.getElementById('quantity');
-//     const totalPriceElement = document.querySelector('.total-prices');
-//     const totalItemsElement = document.querySelector('.total-products');
+    // Lấy danh sách sản phẩm từ localStorage hoặc tạo mới nếu không tồn tại
+    var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
-//     addToCartButton.addEventListener('click', () => {
-//         AddProduct();
-//     });
+    // Thêm sản phẩm mới vào danh sách
+    cartItems.push(product);
 
-//     function AddProduct() {
-//         const productPrice = parseFloat(document.querySelector('.product-price span').textContent.split('nvđ')[0].trim());
-//         const quantity = parseInt(quantityInput.value);
-
-//         const totalPriceForItem = productPrice * quantity;
-
-//         // Update total price and total items
-//         updateTotals(totalPriceForItem, quantity);
-//     }
-
-//     function updateTotals(totalPriceForItem, quantity) {
-//         let totalPrice = parseFloat(totalPriceElement.textContent);
-//         let totalItems = parseInt(totalItemsElement.textContent);
-
-//         totalPrice += totalPriceForItem;
-//         totalItems += quantity;
-
-//         totalPriceElement.textContent = totalPrice.toFixed(2);
-//         totalItemsElement.textContent = totalItems;
-//     }
-// });
+    // Lưu lại danh sách sản phẩm vào localStorage
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+}

@@ -108,7 +108,7 @@
         <h1 style="text-align: center;padding: 20px;">GIỎ HÀNG CỦA BẠN</h1>
         <div class="cart-content-content">
             <div class="left-cart-content">
-                <table>
+                <table id="cart-table">
                     <thead>
                         <tr>
                             <th>Hình Ảnh</th>
@@ -119,38 +119,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><img src="../Cart/images/kedeamtra.webp" alt="kệ để ấm trà"></td>
-                            <td>Kệ để ấm trà</td>
-                            <td>
-                                <div class="input-number-products">
-                                    <button onclick="decreaseQuantity()">-</button>
-                                    <input type="number" id="quantity" value="1" min="1">
-                                    <button onclick="increaseQuantity()">+</button>
-                                </div>
-                            </td>
-                            <td>150.000đ</td>
-                            <td><button oneclick="DeleteProduct()">Xóa</button></td>
-                        </tr>
-                        <tr>
-                            <td><img src="../Cart/images/kechunhatnhomdantuong.webp" alt="Kệ chữ nhật nhom đán tường">
-                            </td>
-                            <td>Kệ chữ nhật để dán tường</td>
-                            <td>
-                                
-                            </td>
-                            <td>150.000đ</td>
-                            <td><button oneclick="DeleteProduct()">Xóa</button></td>
-                        </tr>
-                        <tr>
-                            <td><img src="../Cart/images/kedanangdantuong.webp" alt="Kệ đa năng dán tường"></td>
-                            <td>Kệ đa năng dán tường</td>
-                            <td>
-                                
-                            </td>
-                            <td>150.000đ</td>
-                            <td><button oneclick="DeleteProduct()">Xóa</button></td>
-                        </tr>
+                        <!-- sản phẩm được thêm vào giỏ hàng -->
                     </tbody>
                 </table>
             </div>

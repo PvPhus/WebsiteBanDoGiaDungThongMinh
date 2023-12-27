@@ -1,4 +1,4 @@
-var current_url = "http://localhost:51451";
+var current_url = "https://localhost:7202";
 makeScript = function (url) {
 	var script = document.createElement('script');
 	script.setAttribute('src', url);

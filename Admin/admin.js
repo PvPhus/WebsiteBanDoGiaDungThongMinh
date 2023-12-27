@@ -1,104 +1,104 @@
 // /*------------------------------------------------------------------DANH LOẠI SẢN PHẨM---------------------------------------------------------------------*/
-// var categories = JSON.parse(localStorage.getItem('categories')) || [];
-//     function renderTable() {
-//         var tableBody = document.querySelector('#TABLEDLSP tbody');
+var categories = JSON.parse(localStorage.getItem('categories')) || [];
+    function renderTable() {
+        var tableBody = document.querySelector('#TABLEDLSP tbody');
 
-//         // Xóa bảng để render lại
-//         tableBody.innerHTML = '';
+        // Xóa bảng để render lại
+        tableBody.innerHTML = '';
 
-//         categories.forEach(function (category, index) {
-//             var row = `
-//                 <tr>
-//                     <td>${index + 1}</td>
-//                     <td>${category.id}</td>
-//                     <td>${category.name}</td>
-//                     <td>${category.soLuong}</td>
-//                     <td>
-//                         <button onclick="EditLSP(${index})">Sửa</button> ||
-//                         <button onclick="DeleteLSP(${index})">Xóa</button>
-//                     </td>
-//                 </tr>
-//             `;
-//             tableBody.innerHTML += row;
-//         });
-//     }
+        categories.forEach(function (category, index) {
+            var row = `
+                <tr>
+                    <td>${index + 1}</td>
+                    <td>${category.id}</td>
+                    <td>${category.name}</td>
+                    <td>${category.soLuong}</td>
+                    <td>
+                        <button onclick="EditLSP(${index})">Sửa</button> ||
+                        <button onclick="DeleteLSP(${index})">Xóa</button>
+                    </td>
+                </tr>
+            `;
+            tableBody.innerHTML += row;
+        });
+    }
 
-//     // Thêm loại sản phẩm
-//     function addLSP() {
-//         var maLSP = document.getElementById('maLoai').value;
-//         var tenLSP = document.getElementById('tenLoai').value;
-//         var soLuong = document.getElementById('soLuongLoaiTon').value;
+    // Thêm loại sản phẩm
+    function addLSP() {
+        var maLSP = document.getElementById('maLoai').value;
+        var tenLSP = document.getElementById('tenLoai').value;
+        var soLuong = document.getElementById('soLuongLoaiTon').value;
 
-//         // Kiểm tra xem ID đã tồn tại chưa
-//         var idExists = categories.some(function (category) {
-//             return category.id === maLSP;
-//         });
-//         // Kiểm tra trùng ID
-//         if (idExists) {
-//             alert('ID đã tồn tại. Vui lòng nhập ID khác.');
-//             return;
-//         }
-//         // Kiểm tra dữ liệu để rỗng
-//         if (!maLSP || !tenLSP || !soLuong) {
-//             alert('Vui lòng nhập đầy đủ thông tin loại sản phẩm.');
-//             return; // Ngăn chặn gửi form nếu có lỗi
-//         }
-//         var newCategory = {
-//             id: maLSP,
-//             name: tenLSP,
-//             soLuong: soLuong
-//         };
+        // Kiểm tra xem ID đã tồn tại chưa
+        var idExists = categories.some(function (category) {
+            return category.id === maLSP;
+        });
+        // Kiểm tra trùng ID
+        if (idExists) {
+            alert('ID đã tồn tại. Vui lòng nhập ID khác.');
+            return;
+        }
+        // Kiểm tra dữ liệu để rỗng
+        if (!maLSP || !tenLSP || !soLuong) {
+            alert('Vui lòng nhập đầy đủ thông tin loại sản phẩm.');
+            return; // Ngăn chặn gửi form nếu có lỗi
+        }
+        var newCategory = {
+            id: maLSP,
+            name: tenLSP,
+            soLuong: soLuong
+        };
 
-//         categories.push(newCategory);
+        categories.push(newCategory);
 
-//         // Lưu danh sách loại sản phẩm vào Local Storage
-//         localStorage.setItem('categories', JSON.stringify(categories));
+        // Lưu danh sách loại sản phẩm vào Local Storage
+        localStorage.setItem('categories', JSON.stringify(categories));
 
-//         // Render lại bảng
-//         renderTable();
+        // Render lại bảng
+        renderTable();
 
-//         // Clear ô nhập
-//         document.getElementById('maLoai').value = '';
-//         document.getElementById('tenLoai').value = '';
-//         document.getElementById('soLuongLoaiTon').value = '';
-//     }
+        // Clear ô nhập
+        document.getElementById('maLoai').value = '';
+        document.getElementById('tenLoai').value = '';
+        document.getElementById('soLuongLoaiTon').value = '';
+    }
 
-//     // Sửa loại sản phẩm
-//     function EditLSP(index) {
-//         // Lấy thông tin của loại sản phẩm cần sửa
-//         var currentCategory = categories[index];
+    // Sửa loại sản phẩm
+    function EditLSP(index) {
+        // Lấy thông tin của loại sản phẩm cần sửa
+        var currentCategory = categories[index];
     
-//         // Hiển thị prompt với thông tin hiện tại
-//         var editName = prompt('Mời bạn chỉnh sửa tên loại sản phẩm:', currentCategory.name);
-//         var editSoLuong = prompt('Mời bạn chỉnh sửa số lượng:', currentCategory.soLuong);
+        // Hiển thị prompt với thông tin hiện tại
+        var editName = prompt('Mời bạn chỉnh sửa tên loại sản phẩm:', currentCategory.name);
+        var editSoLuong = prompt('Mời bạn chỉnh sửa số lượng:', currentCategory.soLuong);
     
-//         // Kiểm tra nếu người dùng đã nhập giá trị mới
-//         if (editName !== null && editSoLuong !== null) {
-//             // Cập nhật thông tin của loại sản phẩm
-//             categories[index].name = editName;
-//             categories[index].soLuong = editSoLuong;
+        // Kiểm tra nếu người dùng đã nhập giá trị mới
+        if (editName !== null && editSoLuong !== null) {
+            // Cập nhật thông tin của loại sản phẩm
+            categories[index].name = editName;
+            categories[index].soLuong = editSoLuong;
     
-//             // Lưu lại vào Local Storage
-//             localStorage.setItem('categories', JSON.stringify(categories));
+            // Lưu lại vào Local Storage
+            localStorage.setItem('categories', JSON.stringify(categories));
     
-//             // Render lại bảng
-//             renderTable();
-//         }
-//     }
+            // Render lại bảng
+            renderTable();
+        }
+    }
     
 
-//     // Xóa loại sản phẩm
-//     function DeleteLSP(index) {
-//         var confirmDelete = confirm('Bạn có chắc chắn muốn xóa loại sản phẩm này không?');
-//         if (confirmDelete) {
-//             categories.splice(index, 1);
-//             localStorage.setItem('categories', JSON.stringify(categories));
-//             renderTable();
-//         }
-//     }
+    // Xóa loại sản phẩm
+    function DeleteLSP(index) {
+        var confirmDelete = confirm('Bạn có chắc chắn muốn xóa loại sản phẩm này không?');
+        if (confirmDelete) {
+            categories.splice(index, 1);
+            localStorage.setItem('categories', JSON.stringify(categories));
+            renderTable();
+        }
+    }
 
-//     // Render bảng khi trang được tải
-//     renderTable();
+    // Render bảng khi trang được tải
+    renderTable();
 
 
 // /*---------------------------------------------------------------------------DANH SÁCH SẢN PHẨM---------------------------------------------------------------------*/
@@ -270,102 +270,109 @@
 
 
 /*DANH LOẠI SẢN PHẨM*/
-var app = angular.module('QLDSLSP', []);
+// var app = angular.module('QLDSLSP', []);
 
-app.controller('CategoryController', function ($scope, $http) {
+// app.controller('CategoryController', function ($scope, $http) {
     
-    $scope.displayedCategories = []; // Danh sách sản phẩm hiển thị trên trang hiện tại
-    $scope.newCategory = {}; // Thêm sản phẩm mới
-    $scope.editCategory = null; // Sửa sản phẩm
-    $scope.itemsPerPage = 15; // Số sản phẩm trên mỗi trang
-    $scope.currentPage = 1; // Trang hiện tại
-    $scope.totalPages = 0; // Tổng số trang
-    // Hàm để gọi API và cập nhật danh sách loại sản phẩm
+//     $scope.displayedCategories = []; // Danh sách sản phẩm hiển thị trên trang hiện tại
+//     $scope.newCategory = {}; // Thêm sản phẩm mới
+//     $scope.editCategory = null; // Sửa sản phẩm
+//     $scope.itemsPerPage = 15; // Số sản phẩm trên mỗi trang
+//     $scope.currentPage = 1; // Trang hiện tại
+//     $scope.totalPages = 0; // Tổng số trang
+//     // Hàm để gọi API và cập nhật danh sách loại sản phẩm
 
-    $scope.getAllCategories = function () {
+//     $scope.getAllCategories = function () {
 
-        $http.get('https://localhost:7202/api/DoGiaDung/get_all_category')
-            .then(function (response) {
-                $scope.displayedCategories = response.data;
-                $scope.totalPages = Math.ceil($scope.displayedCategories.length / $scope.itemsPerPage);
-                updateDisplayedCategories();
-            })
-            .catch(function (error) {
-                console.error('Error fetching categories:', error);
-            });
-    };
+//         $http.get('https://localhost:7202/api/DoGiaDung/get_all_category')
+//             .then(function (response) {
+//                 $scope.displayedCategories = response.data;
+//                 $scope.totalPages = Math.ceil($scope.displayedCategories.length / $scope.itemsPerPage);
+//                 updateDisplayedCategories();
+//             })
+//             .catch(function (error) {
+//                 console.error('Error fetching categories:', error);
+//             });
+//     };
 
-    //Hàm để cập nhật danh sách loại sản phẩm
-    function updateDisplayedCategories() {
-        var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
-        var endIndex = Math.min(startIndex + $scope.itemsPerPage, $scope.displayedCategories.length);
-        $scope.displayedCategories = $scope.displayedCategories.slice(startIndex, endIndex);
-    }
+//     //Hàm để cập nhật danh sách loại sản phẩm
+//     function updateDisplayedCategories() {
+//         var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
+//         var endIndex = Math.min(startIndex + $scope.itemsPerPage, $scope.displayedCategories.length);
+//         $scope.displayedCategories = $scope.displayedCategories.slice(startIndex, endIndex);
+//     }
 
-    //Hàm để quay về trang trước đó
-    $scope.prevPage = function () {
-        if ($scope.currentPage > 1) {
-            $scope.currentPage--;
-            updateDisplayedCategories();
-        }
-    };
+//     //Hàm để quay về trang trước đó
+//     $scope.prevPage = function () {
+//         if ($scope.currentPage > 1) {
+//             $scope.currentPage--;
+//             updateDisplayedCategories();
+//         }
+//     };
 
-    // Hàm để chuyển đến trang tiếp theo
-    $scope.nextPage = function () {
-        if ($scope.currentPage < $scope.totalPages) {
-            $scope.currentPage++;
-            updateDisplayedCategories();
-        }
-    };
+//     // Hàm để chuyển đến trang tiếp theo
+//     $scope.nextPage = function () {
+//         if ($scope.currentPage < $scope.totalPages) {
+//             $scope.currentPage++;
+//             updateDisplayedCategories();
+//         }
+//     };
 
-    // Hàm để thêm loại sản phẩm mới
-    $scope.addCategory = function () {
-        $scope.submit == "Thêm";
-        var isDuplicate = $scope.displayedCategories.some(function (category) {
-            return category.maLoai === $scope.newCategory.maLoai;
-        });
+//     // Hàm để thêm loại sản phẩm mới
+//     $scope.addCategory = function () {
+//         $scope.submit == "Thêm";
+//         var isDuplicate = $scope.displayedCategories.some(function (category) {
+//             return category.maLoai === $scope.newCategory.maLoai;
+//         });
     
-        if (isDuplicate) {
-            // Mã loại sản phẩm trùng lặp, thực hiện xử lý tương ứng (ví dụ: hiển thị cảnh báo)
-            alert('Mã loại sản phẩm đã tồn tại. Vui lòng chọn mã loại sản phẩm khác.');
-            return;
-        }
-        $http.post('https://localhost:7202/api/DoGiaDung/create-LoaiDoGiaDung', $scope.newCategory)
-            .then(function (response) {
-                alert("Thêm sản phẩm thành công!");
-                $scope.displayedCategories.push(response.data);
-                $scope.newCategory = {}; // Clear the form
-            })
-            .catch(function (error) {
-                console.error('Thêm sản phẩm không thành công!', error);
-            });
-    };
+//         if (isDuplicate) {
+//             // Mã loại sản phẩm trùng lặp, thực hiện xử lý tương ứng (ví dụ: hiển thị cảnh báo)
+//             alert('Mã loại sản phẩm đã tồn tại. Vui lòng chọn mã loại sản phẩm khác.');
+//             return;
+//         }
+//         $http.post('https://localhost:7202/api/DoGiaDung/create-LoaiDoGiaDung', $scope.newCategory)
+//             .then(function (response) {
+//                 alert("Thêm sản phẩm thành công!");
+//                 $scope.displayedCategories.push(response.data);
+//                 $scope.newCategory = {}; // Clear the form
+//             })
+//             .catch(function (error) {
+//                 console.error('Thêm sản phẩm không thành công!', error);
+//             });
+//     };
     
-    // Hàm để sửa loại sản phẩm
-    $scope.editCategory = function () {
-        $scope.submit == "Lưu";
-        $http.put('https://localhost:7202/api/DoGiaDung/update-LoaiDoGiaDung/' + $scope.editCategory.id, $scope.editCategory)
-            .then(function () {
-                // Tìm chỉ mục của loại sản phẩm trong mảng
-                var index = $scope.displayedCategories.findIndex(function (category) {
-                    return category.id === $scope.editCategory.id;
-                });
+//     // Hàm để sửa loại sản phẩm
+//     $scope.startEdit = function (category) {
+//         // Set the editCategory to a copy of the category to avoid two-way binding issues
+//         $scope.editCategory = angular.copy(category);
+//     };
 
-                // Cập nhật loại sản phẩm trong chuỗi
-                $scope.displayedCategories[index] = angular.copy($scope.editCategory);
+//     $scope.saveCategory = function () {
+//         if (!$scope.editCategory ) {
+//             console.error('ID of the category to edit is undefined.');
+//             return;
+//         }
+    
+//         // Perform the save logic similar to your editCategory function
+//         $http.put('https://localhost:7202/api/DoGiaDung/update-LoaiDoGiaDung/' + $scope.editCategory.maLoai, $scope.editCategory)
+//             .then(function () {
+//                 debugger
+//                 var index = $scope.displayedCategories.findIndex(function (cat) {
+//                     return cat.maLoai === $scope.editCategory.maLoai;
+//                 });
+    
+//                 $scope.displayedCategories[index] = angular.copy($scope.editCategory);
+//                 $scope.editCategory = null;
+//             })
+//             .catch(function (error) {
+//                 console.error('Lưu không thành công:', error);
+//             });
+//             updateDisplayedCategories();
+//     };
 
-                // Làm mới ô nhập
-                $scope.editCategory = null;
-            })
-            .catch(function (error) {
-                console.error('Sửa không thành công:', error);
-            });
-    };     
-    // Gọi hàm 
-    $scope.addCategory();
-    $scope.editCategory();
-    $scope.getAllCategories();
-});
+//     // Gọi hàm  
+//     $scope.getAllCategories();
+// });
  
 
 
@@ -641,4 +648,83 @@ app.controller('CategoryController', function ($scope, $http) {
 //     $scope.getAllKhachHangs(); 
 // });
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// var app = angular.module('APP',[]);
+// app.controller('Controller', function($scope, $http){
+//     $scope.itemsPerPage = 12; 
+//     $scope.currentPage = 1; 
+//     $scope.totalPages = 0; 
+
+//     $scope.listSanPham;
+//     $scope.listLoaiSanPham;
+
+//     //Load dữ liệu lên bảng loại sản phẩm
+//     $scope.LoadLoaiSanPham = function () {
+//         $http({
+//             method: 'GET',
+//             url: current_url + '/api/DoGiaDung/get_all_category',
+//         }).then(function (response) {
+//             $scope.listLoaiSanPham = response.data;
+//             $scope.totalPages = Math.ceil($scope.listLoaiSanPham.length / $scope.itemsPerPage);
+//             updatelistLoaiSanPham();
+//         });
+//     };
+//     //Load dữ liệu lên bảng dánh sách sản phẩm
+//     $scope.LoadSanPham = function () {
+//         $http({
+//             method: 'GET',
+//             url: current_url + '/api/DoGiaDung/get_all_products',
+//         }).then(function (response) {
+//             $scope.listSanPham = response.data;
+//             $scope.totalPages = Math.ceil($scope.listSanPham.length / $scope.itemsPerPage);
+//             updatelistSanPham();
+//         });
+//     };
+//     //Load dữ liệu lên combobox của quản lý sản phẩm
+//     $scope.LoadListLoaiSanPham = function(){
+//         $http({
+//             method: 'GET',
+//             url: current_url + '/api/DoGiaDung/get_all_category',
+//         }).then(function(response){
+//             $scope.listLoaiSanPham = response.data;
+//             $scope.displayedCategories = response.data.map(function(category) {
+//                 return category.tenLoai; // Thay 'tenLoai' bằng tên thuộc tính bạn muốn hiển thị
+//             });
+//         });
+//     };
+    
+//     //Hàm có chức năng tải lại dữ liệu trang tối đa 15 bản ghi hiển thị trên bảng
+//     function updatelistLoaiSanPham() {
+//         var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
+//         var endIndex = Math.min(startIndex + $scope.itemsPerPage, $scope.listLoaiSanPham.length);
+//         $scope.listLoaiSanPham = $scope.listLoaiSanPham.slice(startIndex, endIndex);
+//     };
+//     function updatelistSanPham() {
+//         var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
+//         var endIndex = Math.min(startIndex + $scope.itemsPerPage, $scope.listSanPham.length);
+//         $scope.listSanPham = $scope.listSanPham.slice(startIndex, endIndex);
+//     };
+//     //Hàm chuyển về trang trước
+//     $scope.prevPage = function () {
+//         if ($scope.currentPage > 1) {
+//             $scope.currentPage--;          
+//             updatelistLoaiSanPham();
+//             }
+//     };
+
+//     // Hàm để chuyển đến trang sau
+//     $scope.nextPage = function () {
+//         if ($scope.currentPage < $scope.totalPages) {
+//             $scope.currentPage++;           
+//             updatelistLoaiSanPham();
+//             }
+//     };
+//     //Các hàm gọi sử dụng
+//     $scope.LoadLoaiSanPham();
+//     $scope.LoadSanPham();
+//     $scope.LoadListLoaiSanPham();
+//     $scope.nextPage();
+//     $scope.prevPage();
+//  });
+

@@ -25,7 +25,6 @@ showSlides();
   app.controller('SearchController', function ($scope, ProductService) {
     $scope.searchQuery = '';
     $scope.searchResults = [];
-    debugger
     $scope.searchProducts = function () {
       ProductService.search($scope.searchQuery)
         .then(function (response) {
