@@ -15,8 +15,8 @@
 
 <body>
     <header>
-        <div class="logo"><a href="../Giao diện chính/index.html"><img src="../Admin/images/logo-web.webp"
-                    alt=""></a></div>
+        <div class="logo"><a href="../Giao diện chính/index.html"><img src="../Admin/images/logo-web.webp" alt=""></a>
+        </div>
         <div class="menu">
             <ul>
                 <li><a href="">Thông Báo</a></li>
@@ -45,7 +45,7 @@
             </ul>
         </div>
         <!-- SỬ DỤNG BẰNG LOCALSTORAGE -->
-        <div class="right-admin-content">
+        <!-- <div class="right-admin-content">
             <h1>QUẢN LÝ LOẠI SẢN PHẨM</h1>
             <div class="right-admin-content-category_add">
                 <form id="categoryForm">
@@ -72,28 +72,21 @@
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div> -->
 
         <!-- SỬ DỤNG TƯƠNG TÁC VỚI BACKEND -->
-        <!-- <div class="right-admin-content" ng-app="APP" ng-controller="Controller">
+        <div class="right-admin-content" ng-app="APP-LSP" ng-controller="Controller-LSP">
             <h1>QUẢN LÝ LOẠI SẢN PHẨM</h1>
             <div class="right-admin-content-category_add">
-                <form id="categoryForm">
-                    <input type="number" id="maLoai" ng-model="newCategory.maLoai" placeholder="Nhập mã loại">
-                    <input type="text" id="tenLoai" ng-model="newCategory.tenLoai" placeholder="Nhập tên loại sản phẩm">
-                    <input type="number" id="soLuongLoaiTon" ng-model="newCategory.soLuongLoaiTon"
-                        placeholder="Nhập số lượng loại tồn">
-                    <button type="submit" ng-click="addCategory()">Thêm</button>
+                
+                <form id="categoryForm" ng-submit="addCategory()">
+                    <input type="number" id="maLoai" ng-model="maLoai" placeholder="Nhập mã loại">
+                    <input type="text" id="tenLoai" ng-model="tenLoai" placeholder="Nhập tên loại sản phẩm">
+                    <input type="number" id="soLuongLoaiTon" ng-model="soLuongLoaiTon" placeholder="Nhập số lượng loại tồn">
+                    <button style="margin:20px 5px 0px 10px" type="submit">{{submit}}</button>
                 </form>
-                <form style="margin-left: 50px;" ng-if="editCategory">
-                    <input type="number" id="maLoai" ng-model="editCategory.maLoai">
-                    <input type="text" id="tenLoai" ng-model="editCategory.tenLoai"
-                        placeholder="Nhập tên loại sản phẩm">
-                    <input type="number" id="soLuongLoaiTon" ng-model="editCategory.soLuongLoaiTon"
-                        placeholder="Nhập số lượng loại tồn">
-                    <button type="submit" ng-click="saveCategory(editCategory)">Lưu</button>
-                </form>
-            </div>
+                <div ng-show="error"  style="color: red; width: auto; margin: 30px 0px 0px 10px; height:auto; width: auto;">{{error}}</div>
+            </div> 
             <h1>DANH SÁCH LOẠI SẢN PHẨM</h1>
             <div class="right-admin-content-category_list">
                 <table id="TABLEDLSP">
@@ -113,21 +106,22 @@
                             <td>{{category.tenLoai}}</td>
                             <td>{{category.soLuongLoaiTon}}</td>
                             <td>
-                                <button ng-click="startEdit(category)">Sửa</button>
+                                <button ng-click="Sua(category.maLoai)">Sửa</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            
+        
             <div class="pagination">
                 <button ng-click="prevPage()" ng-disabled="currentPage === 1">Back</button>
                 <span>{{currentPage}}</span>
                 <button ng-click="nextPage()" ng-disabled="currentPage === totalPages">Next</button>
-            </div> -->
-            
+            </div>
         </div>
+        
     </section>
     <div id='mainDiv'></div>
 </body>
+
 </html>

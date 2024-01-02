@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Quản Trị</title>
     <link rel="stylesheet" href="admin.css">
-    <script src="../AngularJS/anguler.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- <script src="../AngularJS/anguler.min.js"></script> -->
     <script src="../AngularJS/global.js"></script>
     <script src="../Admin/admin.js"></script>
 </head>
@@ -42,25 +43,29 @@
                 </li>
             </ul>
         </div>
-        <div class="right-admin-content"  ng-app="APP" ng-controller="Controller">
+        <div class="right-admin-content" ng-app="APP-SP" ng-controller="Controller-SP">
             <!-- Các trường và nút thêm sản phẩm -->
             <h1>QUẢN LÝ SẢN PHẨM</h1>
-            <div class="right-admin-content-category_add">
-                <!-- Các trường nhập liệu -->
-                <input type="number" ng-model="maSanPham" placeholder="Mã sản phẩm">
-                <input type="text" ng-model="tenSanPham" placeholder="Tên sản phẩm">
-                <select style="width:150px;height:30px;margin-top: 20px;" ng-model="selectedCategory" ng-options="category for category in displayedCategories"></select>
-
-                <input type="number" ng-model="gia" placeholder="Giá">
-                <input type="text" ng-model="moTa" placeholder="Mô tả">
-                <div id="image-preview">
-                    <img ng-src="{{imagePreview}}" alt="Image Preview" ng-show="imagePreview">
-                </div>
-                <input type="file" id="image-input" ng-model="imageData" ng-change="showImagePreview()" accept="image/*">
-                <!-- Sử dụng ng-click để gọi hàm addProduct -->
-                <button ng-click="addProduct()" type="submit">Thêm</button>
+            <div class="right-admin-content-category_add">         
+                <form ng-submit="addProduct()">
+                    <!-- Các trường nhập liệu -->
+                    <input type="number" ng-model="maSanPham" placeholder="Mã sản phẩm" style="width: 120px;">
+                    <input type="text" ng-model="tenSanPham" placeholder="Tên sản phẩm">
+                    <select style="width:150px;height:30px;margin-top: 20px;" ng-model="tenLoai"
+                        ng-options="category for category in displayedCategories"></select>
+                    <input type="number" ng-model="gia" placeholder="Giá">
+                    <input type="text" ng-model="moTa" placeholder="Mô tả">
+                    <div id="image-preview">
+                        <img ng-src="{{imagePreview}}" alt="Image Preview" ng-show="imagePreview">
+                    </div>
+                    <input type="file" file="file" id="image-input" ng-model="imageData" ng-change="showImagePreview()"
+                        accept="image/*">
+                    <!-- Sử dụng ng-click để gọi hàm addProduct -->
+                    <button type="submit">{{submit}}</button>
+                </form>
             </div>
-        
+            <div ng-show="error"  style="color: red; width: auto; margin: 30px 0px 0px 10px; height: auto;width: auto;">{{error}}</div>
+           
             <!-- Tiêu đề và danh sách sản phẩm -->
             <h1>DANH SÁCH SẢN PHẨM</h1>
             <div class="right-admin-content-category_list">
@@ -68,7 +73,7 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>Mã Sản Phẩm</th>                      
+                            <th>Mã Sản Phẩm</th>
                             <th>Tên Sản Phẩm</th>
                             <th>Loại Sản Phẩm</th>
                             <th>Giá</th>
@@ -89,14 +94,14 @@
                             <td>{{product.hinhAnh}}</td>
                             <!-- Sử dụng ng-click để gọi hàm updateProduct và deleteProduct -->
                             <td>
-                                <button ng-click="updateProduct(product)">Sửa</button> ||
-                                <button ng-click="deleteProduct(product.id)">Xóa</button>
+                                <button ng-click="updateProduct(product.maSanPham)">Sửa</button> ||
+                                <button ng-click="deleteProduct(product.maSanPham)">Xóa</button>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        
+
             <!-- Phân trang -->
             <div class="pagination">
                 <button ng-click="prevPage()" ng-disabled="currentPage === 1">Back</button>
@@ -107,4 +112,5 @@
     </section>
     <div id='mainDiv'></div>
 </body>
+
 </html>

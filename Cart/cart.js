@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     // Gọi hàm hiển thị thông tin sản phẩm khi trang được tải
     displayCartItems();
-
+    // Gọi hàm load lại giá tiền khi vào giỏ hàng
+    updatePrice();
+    
     function displayCartItems() {
         // Lấy thông tin sản phẩm từ localStorage
         var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
@@ -49,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
             quantityDisplay.value = product.Count || 1; // Số lượng mặc định là 1
             quantityDisplay.readOnly = true; // Chỉ đọc
             quantityCell.appendChild(quantityDisplay);
-              
+
             // Tạo nút '+' để tăng số lượng
             var increaseButton = document.createElement('button');
             increaseButton.textContent = '+';
@@ -95,18 +97,19 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updatePrice() {
-      // Lấy danh sách sản phẩm từ localStorage
-      var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        // Lấy danh sách sản phẩm từ localStorage
+        var cartItems = JSON.parse(localStorage.getItem('cart')) || [];
 
-      // Tính tổng số tiền từ danh sách sản phẩm
-      var totalPrice = cartItems.reduce(function (total, product) {
-          return total + parseFloat(product.Price) * parseInt(product.Count);
-      }, 0);
+        // Tính tổng số tiền từ danh sách sản phẩm
+        var totalPrice = cartItems.reduce(function (total, product) {
+            return total + parseFloat(product.Price) * parseInt(product.Count);
+        }, 0);
 
-      // Hiển thị tổng số tiền trong thẻ span có class là "right-total-cart"
-      var totalCartSpan = document.querySelector('.right-total-cart');
-      totalCartSpan.textContent = totalPrice + '.000 đ';
-  }
+        // Hiển thị tổng số tiền trong thẻ span có class là "right-total-cart"
+        var totalCartSpan = document.querySelector('.right-total-cart');
+        totalCartSpan.textContent = totalPrice + '.000 đ';
+    }
+
     function updateQuantity(index, newQuantity) {
         // Lấy danh sách sản phẩm từ localStorage
         var cartItems = JSON.parse(localStorage.getItem('cart')) || [];

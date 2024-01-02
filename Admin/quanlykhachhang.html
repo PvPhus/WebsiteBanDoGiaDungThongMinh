@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Quản Trị</title>
-    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="../Admin/admin.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <!-- <script src="../AngularJS/anguler.min.js"></script> -->
+    <script src="../AngularJS/global.js"></script>
+    <script src="../Admin/admin.js"></script>
 </head>
 
 <body>
@@ -26,7 +30,7 @@
     </header>
     <section class="admin-content">
         <div class="left-admin-content"></div>  
-        <div class="right-admin-content" ng-app="QLDSKH" ng-controller="KhachHangController">
+        <div class="right-admin-content" ng-app="APP-KH" ng-controller="Controller-KH">
             <h1>QUẢN LÝ KHÁCH HÀNG</h1>
             <div class="right-admin-content-category_add">               
                 <form id="KhachHangFrom">
@@ -63,15 +67,12 @@
                 </table>
             </div>
             <div class="pagination">
-                <button ng-click="prevPage()" ng-disabled="currentPage === 1">Trang Trước</button>
+                <button ng-click="prevPage()" ng-disabled="currentPage === 1">Back</button>
                 <span>{{currentPage}}</span>
-                <button ng-click="nextPage()" ng-disabled="currentPage === totalPages">Trang Sau</button>
+                <button ng-click="nextPage()" ng-disabled="currentPage === totalPages">Next</button>
             </div>
         </div>
     </section>
-    <footer>
-
-    </footer>
+    <div id='mainDiv'></div>
 </body>
 </html>
-<script src="admin.js"></script>
