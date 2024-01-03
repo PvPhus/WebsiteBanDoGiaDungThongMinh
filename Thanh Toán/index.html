@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" href="../Thanh Toán/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="left-pay">
+            <div class="imglogo"><a href="../Giao diện chính/index.html"><img src="../Thanh Toán/images/logo.webp"
+                        alt=""></a></div>
+            <h2>Thông tin nhận hàng</h2>
+            <input type="text" name="" id="" placeholder="Họ và tên">
+            <input type="number" name="" id="" placeholder="Số điện thoại">
+            <input type="text" name="address" id="addressInput" placeholder="Địa chỉ">
+
+            <div class="borderbox">
+                <label for="province">Tỉnh/Thành phố:</label>
+                <select id="province" onchange="loadDistricts()">
+                    <option value="province1">Hà Nội</option>
+                    <option value="province2">Bắc Ninh</option>
+                    <option value="province3">Bắc Giang</option>
+                    <option value="province4">Hà Giang</option>
+                    <option value="province5">Hưng Yên</option>
+                    <option value="province6">Đà Nẵng</option>
+                    <option value="province7">Quảng Ninh</option>
+                    <option value="province8">Hải Phòng</option>
+                    <option value="province9">Hải Dương</option>
+                    <option value="province10">Thanh Hóa</option>
+                </select>
+            </div>
+
+            <div class="borderbox">
+                <label for="district">Quận/Huyện:</label>
+                <select id="district" onchange="loadWards()" disabled>
+                    <!-- Hà nội -->
+                    <option value="district1">Thị Xã Sơn Tây</option>
+                    <option value="district2">Quận Ba Đình</option>
+                    <option value="district3">Quận Cầu giấy</option>
+                    <option value="district4">Quận Đống Đa</option>
+                    <option value="district5">Quận Hà Đông</option>
+                    <option value="district6">Quận Hai Bà Trưng</option>
+                    <option value="district7">Huyện Ba Vì</option>
+                    <option value="district8">Huyện Đông Anh</option>
+                    <!-- Hưng Yên -->
+                    <option value="district9">Thành Phố Hưng Yên</option>
+                    <option value="district10">Huyện Ân Thi</option>
+                    <option value="district11">Huyện Khoái Châu</option>
+                    <option value="district12">Huyện Kim Động</option>
+                    <option value="district13">Thị Xã Mỹ Hào</option>
+                    <option value="district14">Huyện Phù Cừ</option>
+                    <option value="district15">Huyện Tiên Lữ</option>
+                    <option value="district16">Huyện Văn Giang</option>
+                </select>
+            </div>
+
+            <div class="borderbox">
+                <label for="ward">Phường/Xã:</label>
+                <select id="ward" disabled>
+                    <!-- Hà nội-Sơn Tây -->
+                    <option value="ward1">Phường Lê Lợi</option>
+                    <option value="ward2">Phường Phú Thịnh</option>
+                    <option value="ward3">Phường Ngô Quyền</option>
+                    <option value="ward4">Phường Quang Trung</option>
+                    <option value="ward5">Phường Sơn Lộc</option>
+                    <!-- Hà nội-Ba đình -->
+                    <option value="ward6">Phường Phúc Xá</option>
+                    <option value="ward7">Phường Trúc Bạch</option>
+                    <option value="ward8">Phường Cống Vị</option>
+                    <option value="ward9">Phường Liễu Giai</option>
+                    <option value="ward10">Phường Nguyễn Trung Trực</option>
+                    <!-- Hưng Yên-Mỹ Hào -->
+                    <option value="ward11">Phường Bần yên Nhân</option>
+                    <option value="ward12">Xã Phan Đình Phùng</option>
+                    <option value="ward13">Xã Cẩm Xá</option>
+                    <option value="ward14">Xã Dương Quang</option>
+                    <option value="ward15">Xã Hòa Phong</option>
+                    <option value="ward16">Phường Dị Sử</option>
+                    <option value="ward17">Phường Nhân Hòa</option>
+                </select>
+            </div>
+            <input type="text" name="" id="" placeholder="Ghi chú (tùy chọn)">
+            <h2>Hình Thức Thanh Toán</h2>
+            <div class="borderbuy">
+                <div class="btnbuy">
+                    <button id="toggleButton1" class="toggleButton"></button>
+                    <h4>Thanh toán trực tiếp</h4>
+                </div>
+                <div class="btnbuy">
+                    <button id="toggleButton2" class="toggleButton"></button>
+                    <h4>Thanh toán khi nhận hàng</h4>
+                </div>
+            </div>
+
+        </div>
+        <div class="right-pay">
+            <h2>Đơn Hàng</h2>
+            <div class="products-card">
+                <table id="cart-table">
+                    <tbody>
+                        <!-- dữ liệu được đổ vào -->
+                    </tbody>
+                </table>
+            </div>
+            <div style="display: flex; justify-content: center; margin-left: -10px;">
+                <input style="width: 95%;" type="text" placeholder="Nhập mã giảm giá!">
+                <button class="btnvoucher">Áp dụng</button>
+            </div>
+            <div class="money">
+                <div class="money-product">
+                    <h3>Tạm tính</h3>
+                    <h4 class="tiensp">0đ</h4>
+                </div>
+                <div class="money-ship">
+                    <h3>Phí ship</h3>
+                    <h4>0đ</h4>
+                </div>
+                <div style="border: 1px solid #444; margin: 10px;"></div>
+                <div class="total-money">
+                    <h3>Tổng Tiền</h3>
+                    <h4 class="total-price">0đ</h4>
+                </div>
+            </div>
+            <button id="orderButton" class="btndathang" onclick="btnOder()">ĐẶT HÀNG</button>
+            <a href="../Cart/cart.html">
+                <i class="back-cart">❮</i>
+                <span class="linkback">Quay về giỏ hàng</span>
+            </a>
+        </div>
+    </header>
+</body>
+<footer>
+
+</footer>
+
+</html>
+<script src="../Thanh Toán/home.js"></script>

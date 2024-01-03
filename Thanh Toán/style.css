@@ -1,0 +1,182 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: lightsteelblue;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+}
+
+h2 {
+    margin-left: 30px;
+    color: green;
+}
+
+h4 {
+    margin-left: 3px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input {
+    height: 30px;
+    width: 90%;
+    margin: 3px;
+    padding: 8px;
+    background-color: aliceblue;
+    border: 1px solid #444;
+    border-radius: 10px;
+}
+
+select {
+    padding: 5px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: cornsilk;
+    height: auto;
+    width: auto;
+    border-radius: 10px;
+}
+
+button {
+    height: 20px;
+    width: 20px;
+    border-radius: 8px;
+}
+
+button:hover {
+    background-color:aqua;
+    cursor: pointer;
+}
+
+.marked {
+    background-color:dodgerblue;
+}
+
+.borderbox {
+    margin: 3px;
+    border: 1px solid #444;
+    padding: 8px;
+    height: 45px;
+    width: 90%;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+.left-pay {
+    width: 45%;
+    align-items: center;
+    justify-content: center;
+}
+
+.imglogo {
+    width: 90%;
+    align-items: center;
+}
+
+.imglogo img {
+    margin-left: 200px;
+}
+
+.right-pay {
+    margin-top: 40px;
+    width: 55%;
+    background-color: antiquewhite;
+    border: 1px solid #444;
+    border-radius: 10px;
+}
+
+.borderbuy {
+    border: 1px solid #444;
+    width: 90%;
+    margin: 3px;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: aliceblue;
+}
+
+.btnbuy {
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.btnvoucher {
+    height: 41px;
+    width: 250px;
+    margin: 7px 0px 0px -255px;
+    border: none;
+    font-weight: bold;
+    background-color: black;
+    color: aliceblue;
+}
+
+.btnvoucher:hover {
+    background-color: #444;
+    cursor: pointer;
+}
+
+.money h4 {
+    margin-left: 500px;
+}
+
+.money-product {
+    margin-left: 10px;
+    padding: 5px;
+    width: 90%;
+    height: 35px;
+    display: flex;
+}
+
+.money-ship {
+    margin-left: 10px;
+    padding: 5px;
+    width: 90%;
+    height: 35px;
+    display: flex;
+}
+
+.total-money {
+    margin-left: 10px;
+    padding: 5px;
+    width: 90%;
+    height: 35px;
+    display: flex;
+}
+
+.btndathang {
+    height: 40px;
+    width: 95%;
+    color: white;
+    background-color: coral;
+    margin: 20px;
+}
+
+.btndathang:hover {
+    background-color: crimson;
+    cursor: pointer;
+}
+
+.back-cart {
+    margin-left: 30px;
+    vertical-align: middle;
+    font-style: normal;
+
+}
+
+.linkback {
+    vertical-align: middle;
+}
