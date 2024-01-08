@@ -15,9 +15,9 @@ btnLogin.onclick = function login() {
     if (user) {
         alert('Đăng nhập thành công!');
         // Phân quyền và chuyển hướng trang
-        if (user.username === 'admin') {         
+        if (user.username === 'admin') {
             window.location.href = '../Admin/danhloaisanpham.html';
-            alert('Chào Admin!'); 
+            alert('Chào Admin!');
         } else if (user.role === 'user') {
             window.location.href = '../Giao diện chính/index.html';
             alert('Chào người dùng!');
@@ -25,6 +25,4 @@ btnLogin.onclick = function login() {
     } else {
         alert('Tên đăng nhập hoặc mật khẩu không đúng.');
     }
-
 }
-    

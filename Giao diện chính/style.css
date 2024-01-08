@@ -360,7 +360,6 @@ header {
 .smart-product-type2 {
     display: flex;
     flex-wrap: wrap;
-
 }
 
 .smart-products-info {
@@ -368,7 +367,7 @@ header {
 }
 
 .smart-product-type2 .smart-products-info {
-    flex: 18%;
+    flex: 15%;
     padding: 20px;
 
 }

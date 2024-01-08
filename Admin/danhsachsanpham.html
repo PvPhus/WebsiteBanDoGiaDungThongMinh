@@ -50,14 +50,11 @@
                 <form ng-submit="addProduct()">
                     <!-- Các trường nhập liệu -->
                     <input type="number" ng-model="maSanPham" placeholder="Mã sản phẩm" style="width: 120px;">
-                    <input type="text" ng-model="tenSanPham" placeholder="Tên sản phẩm">
+                    <input type="text" id="nameProduct" ng-model="tenSanPham" placeholder="Tên sản phẩm">
                     <select style="width:150px;height:30px;margin-top: 20px;" ng-model="tenLoai"
                         ng-options="category for category in displayedCategories"></select>
                     <input type="number" ng-model="gia" placeholder="Giá">
                     <input type="text" ng-model="moTa" placeholder="Mô tả">
-                    <div id="image-preview">
-                        <img ng-src="{{imagePreview}}" alt="Image Preview" ng-show="imagePreview">
-                    </div>
                     <input type="file" file="file" id="image-input" ng-model="imageData" ng-change="showImagePreview()"
                         accept="image/*">
                     <!-- Sử dụng ng-click để gọi hàm addProduct -->
@@ -91,7 +88,7 @@
                             <td>{{product.tenLoai}}</td>
                             <td>{{product.gia}}</td>
                             <td>{{product.moTa}}</td>
-                            <td>{{product.hinhAnh}}</td>
+                            <td>{{product.imageData}}</td>
                             <!-- Sử dụng ng-click để gọi hàm updateProduct và deleteProduct -->
                             <td>
                                 <button ng-click="updateProduct(product.maSanPham)">Sửa</button> ||

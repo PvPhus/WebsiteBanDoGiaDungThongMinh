@@ -141,7 +141,7 @@ form #image-preview {
 }
 .right-admin-content-category_add button {
     display: block;
-    margin-top: 10px;
+    margin: 20px 0px 0px 10px;
     height: 30px;
     width: 100px;
     cursor: pointer;

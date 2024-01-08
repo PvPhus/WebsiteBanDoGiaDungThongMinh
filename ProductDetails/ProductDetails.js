@@ -36,4 +36,5 @@ function AddProduct() {
 
     // Lưu lại danh sách sản phẩm vào localStorage
     localStorage.setItem('cart', JSON.stringify(cartItems));
+    alert('Thêm thành công!');
 }
