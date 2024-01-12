@@ -91,9 +91,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 removeFromCart(index);
             });
 
-            removeCell.appendChild(removeButton);
-        });
-        updatePrice();
+            removeCell.appendChild(removeButton); 
+
+            updatePrice();
+        });    
     }
 
     function updatePrice() {

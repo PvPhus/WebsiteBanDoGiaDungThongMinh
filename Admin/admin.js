@@ -448,6 +448,7 @@ app.controller('Controller-LSP', function ($scope, $http) {
         if ($scope.currentPage > 1) {
             $scope.currentPage--;
             $scope.LoadLoaiSanPham();
+            loaddefault();
         }
     };
 
@@ -456,6 +457,7 @@ app.controller('Controller-LSP', function ($scope, $http) {
         if ($scope.currentPage < $scope.totalPages) {
             $scope.currentPage++;
             $scope.LoadLoaiSanPham();
+            loaddefault();
         }
     };
 
@@ -501,22 +503,28 @@ app.controller('Controller-LSP', function ($scope, $http) {
             }).then(function () {
                 $scope.LoadLoaiSanPham();
                 alert('Cập nhật loại sản phẩm thành công!');
-                // Đặt trạng thái về thêm mới sau khi cập nhật
-                $scope.submit = "Thêm";
-                $scope.maLoai = null;
-                $scope.tenLoai = null;
-                $scope.soLuongLoaiTon = null;
+                loaddefault();
             }).catch(function (error) {
                 console.error('Error:', error);
             });
         }
     };
-
+    //Hàm đặt trạng thái về trạng thái ban đầu
+    function loaddefault(){
+        $scope.submit = "Thêm";
+        $scope.maLoai = null;
+        $scope.tenLoai = null;
+        $scope.soLuongLoaiTon = null;
+    };
+    //Hàm sửa khi click
     $scope.Sua = function (maLoai) {
         $scope.submit = "Lưu";
         $scope.updateLoai = $scope.listLoaiSanPham.find(function (category) {
             return category.maLoai === maLoai;
         });
+
+        // Không cho sửa đổi mã
+        $scope.isReadOnly = true;
 
         // Gán giá trị của updateLoai vào các biến
         $scope.maLoai = $scope.updateLoai.maLoai;
@@ -587,6 +595,7 @@ app.controller('Controller-SP', function ($scope, $http) {
         if ($scope.currentPage > 1) {
             $scope.currentPage--;
             $scope.LoadListSanPham();
+            loaddefault();
         }
     };
 
@@ -595,6 +604,7 @@ app.controller('Controller-SP', function ($scope, $http) {
         if ($scope.currentPage < $scope.totalPages) {
             $scope.currentPage++;
             $scope.LoadListSanPham();
+            loaddefault();
         }
     };
 
@@ -602,8 +612,8 @@ app.controller('Controller-SP', function ($scope, $http) {
 
     //Hàm thêm sản phẩm
     $scope.addProduct = function () {
-        if (!$scope.maSanPham || !$scope.tenSanPham || !$scope.tenLoai || !$scope.gia || !$scope.moTa) {
-            $scope.error = 'Vui lòng nhập thông tin sản phẩm.';
+        if (!$scope.maSanPham || !$scope.tenSanPham || !$scope.tenLoai || !$scope.gia || !$scope.moTa || !$scope.imageData) {
+            $scope.error = 'Vui lòng nhập thông tin sản phẩm!';
             return;
         } else {
             $scope.error = '';
@@ -656,14 +666,7 @@ app.controller('Controller-SP', function ($scope, $http) {
                     }).then(function () {
                         $scope.LoadListSanPham();
                         alert('Cập nhật sản phẩm thành công!');
-                        // Đặt trạng thái về thêm mới sau khi cập nhật
-                        $scope.submit = "Thêm";
-                        $scope.maSanPham = null;
-                        $scope.tenSanPham = null;
-                        $scope.tenLoai = null;
-                        $scope.gia = null;
-                        $scope.moTa = null;
-                        $scope.imageData = null;
+                        loaddefault();
                     }).catch(function (error) {
                         console.error('Error:', error);
                     });
@@ -671,7 +674,16 @@ app.controller('Controller-SP', function ($scope, $http) {
             });
         }
     }
-
+    //Hàm đặt trạng thái về ban đầu
+    function loaddefault(){       
+        $scope.submit = "Thêm";
+        $scope.maSanPham = null;
+        $scope.tenSanPham = null;
+        $scope.tenLoai = null;
+        $scope.gia = null;
+        $scope.moTa = null;
+        $scope.imageData = null;
+    };
     // hàm chức năng sửa thông tin sản phẩm
     $scope.updateProduct = function (maSanPham) {
         $scope.submit = "Lưu";
@@ -679,6 +691,9 @@ app.controller('Controller-SP', function ($scope, $http) {
         $scope.updateSanPham = $scope.listSanPham.find(function (product) {
             return product.maSanPham === maSanPham;
         });
+
+        // Không cho sửa đổi mã
+        $scope.isReadOnly = true;
 
         $scope.maSanPham = $scope.updateSanPham.maSanPham;
         $scope.tenSanPham = $scope.updateSanPham.tenSanPham;
@@ -692,6 +707,7 @@ app.controller('Controller-SP', function ($scope, $http) {
 
     //Hàm xóa sản phẩm
     $scope.deleteProduct = function (maSanPham) {
+        loaddefault();
         var result = confirm("Bạn có thực sự muốn xóa không?");
         if (result) {
             $http({
@@ -723,7 +739,7 @@ app.controller('Controller-SP', function ($scope, $http) {
 // TRANG DANH SÁCH KHACH HANG===============================================================================================================================
 var app = angular.module('APP-KH', []);
 
-// Số điện thoại dạng chuỗi, nhưng kiểm tra chỉ cho nhập số vào input SDT
+// Số điện thoại dạng chuỗi, nhưng kiểm tra chỉ cho nhập số vào input số điện thoại
 app.directive('onlyNumbers', function () {
     return {
         restrict: 'A',
@@ -742,6 +758,7 @@ app.directive('onlyNumbers', function () {
 });
 
 app.controller('Controller-KH', function ($scope, $http) {
+    //Khai báo các thực thể
     $scope.itemsPerPage = 10;
     $scope.currentPage = 1;
     $scope.totalPages = 0;
@@ -754,7 +771,8 @@ app.controller('Controller-KH', function ($scope, $http) {
     $scope.submit = "Thêm";
     $scope.listKhachHang = [];
     $scope.newKhachHang = {};
-
+    $scope.ten_khachhang = "";
+    $scope.dia_chi = "";
 
     //Load dữ liệu lên bảng loại sản phẩm
     $scope.LoadListKhachHang = function () {
@@ -773,6 +791,7 @@ app.controller('Controller-KH', function ($scope, $http) {
         if ($scope.currentPage > 1) {
             $scope.currentPage--;
             $scope.LoadListKhachHang();
+            loaddefault();
         }
     };
 
@@ -781,6 +800,7 @@ app.controller('Controller-KH', function ($scope, $http) {
         if ($scope.currentPage < $scope.totalPages) {
             $scope.currentPage++;
             $scope.LoadListKhachHang();
+            loaddefault();
         }
     };
 
@@ -828,24 +848,22 @@ app.controller('Controller-KH', function ($scope, $http) {
             }).then(function () {
                 $scope.LoadListKhachHang();
                 alert('Cập nhật khách hàng thành công!');
-                // Đặt trạng thái về thêm mới sau khi cập nhật
-                $scope.submit = "Thêm";
-                $scope.maKhachHang = null;
-                $scope.tenKhachHang = null;
-                $scope.diaChi = null;
-                $scope.soDienThoai = null;
+                loaddefault();
             }).catch(function (error) {
                 console.error('Error:', error);
             });
         }
     };
-
+    
     // hàm sửa thông tin khách hàng
     $scope.btneditKH = function (maKhachHang) {
         $scope.submit = "Lưu";
         $scope.updateKhachHang = $scope.listKhachHang.find(function (khachhang) {
             return khachhang.maKhachHang === maKhachHang;
         });
+
+        // Không cho sửa đổi mã
+        $scope.isReadOnly = true;
 
         // Gán giá trị của updateKhachHang vào các biến
         $scope.maKhachHang = $scope.updateKhachHang.maKhachHang;
@@ -858,6 +876,7 @@ app.controller('Controller-KH', function ($scope, $http) {
 
     //Hàm xóa khách hàng
     $scope.btndeleteKH = function (maKhachHang) {
+        loaddefault();
         var result = confirm("Bạn có thực sự muốn xóa không?");
         if (result) {
             $http({
@@ -872,7 +891,41 @@ app.controller('Controller-KH', function ($scope, $http) {
         }
     };
 
-    //Hàm có chức năng tải lại dữ liệu trang tối đa 12 bản ghi hiển thị trên bảng
+    //Search Khách hàng
+    $scope.searchKhachHang = function () {
+        if (!$scope.ten_khachhang || !$scope.dia_chi) {
+            $scope.error1 = 'Vui lòng nhập thông tin tìm kiếm!';
+            return;
+        } else {
+            $scope.error1 = '';
+        }
+
+        var formData = {
+            page: 1,
+            pageSize: 10,
+            ten_khachhang: $scope.ten_khachhang,
+            dia_chi: $scope.dia_chi,
+        };
+
+        $http({
+            method: 'POST',
+            url: current_url + '/api/KhachHang/search-KhachHang',
+            data: formData,
+        }).then(function (response) {
+            $scope.listKhachHang = response.data.data;
+        }).catch(function (error) {
+            console.error('Error:', error);
+        });
+    };
+    //Hàm đặt trạng thái về ban đầu
+    function loaddefault(){
+        $scope.submit = "Thêm";
+        $scope.maKhachHang = null;
+        $scope.tenKhachHang = null;
+        $scope.diaChi = null;
+        $scope.soDienThoai = null;
+   };
+    //Hàm có chức năng tải lại dữ liệu trang tối đa 10 bản ghi hiển thị trên bảng
     function updatelistKhachHang() {
         var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
         var endIndex = Math.min(startIndex + $scope.itemsPerPage, $scope.listKhachHang.length);
@@ -884,3 +937,217 @@ app.controller('Controller-KH', function ($scope, $http) {
 });
 
 
+// TRANG NHÂN VIÊN
+var app = angular.module('APP-NV', []);
+
+// Số điện thoại dạng chuỗi, nhưng kiểm tra chỉ cho nhập số vào input số điện thoại
+app.directive('onlyNumbers', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.on('input', function (event) {
+                var inputValue = event.target.value;
+                var sanitizedValue = inputValue.replace(/[^0-9]/g, ''); // Loại bỏ mọi ký tự không phải số
+                if (inputValue !== sanitizedValue) {
+                    scope.$apply(function () {
+                        scope[attrs.ngModel] = sanitizedValue;
+                    });
+                }
+            });
+        }
+    };
+});
+
+app.controller('Controller-NV', function ($scope, $http, $filter) {
+    //Khai báo các thực thể
+    $scope.itemsPerPage = 10;
+    $scope.currentPage = 1;
+    $scope.totalPages = 0;
+
+    $scope.maNhanVien;
+    $scope.tenNhanVien;
+    $scope.chuVu;
+    $scope.ngaySinh;
+    $scope.diaChi;
+    $scope.soDienThoai;
+
+    $scope.submit = "Thêm";
+    $scope.listNhanVien = [];
+    $scope.newNhanVien = {};
+
+    $scope.ten_NhanVien = "";
+    // Options Chức Vụ
+    $scope.chucVuOptions = ["Quản lý", "Nhân viên kho", "Nhân viên bán hàng", "Nhân viên bảo vệ"];
+
+    //Load dữ liệu lên bảng nhân viên
+    $scope.LoadListNhanVien = function () {
+        $http({
+            method: 'GET',
+            url: current_url + '/api/NhanVien/get_all_NhanVien',
+        }).then(function (response) {
+            $scope.listNhanVien = response.data;
+            $scope.totalPages = Math.ceil($scope.listNhanVien.length / $scope.itemsPerPage);
+            updatelistNhanVien();
+        });
+    };
+
+    //Hàm chuyển về trang trước
+    $scope.prevPage = function () {
+        if ($scope.currentPage > 1) {
+            $scope.currentPage--;
+            $scope.LoadListNhanVien();
+            loaddefault();
+        }
+    };
+
+    // Hàm để chuyển đến trang sau
+    $scope.nextPage = function () {
+        if ($scope.currentPage < $scope.totalPages) {
+            $scope.currentPage++;
+            $scope.LoadListNhanVien();
+            loaddefault();
+        }
+    };
+
+    // Thêm hoặc cập nhật loại sản phẩm
+    $scope.addNhanVien = function () {
+        if (!$scope.maNhanVien || !$scope.tenNhanVien || !$scope.chucVu || !$scope.diaChi || !$scope.soDienThoai) {
+            $scope.error = 'Vui lòng nhập thông tin nhân viên!';
+            return;
+        } else {
+            $scope.error = '';
+        }
+
+        //Đẩy thông tin nhân viên vào NewNhanVien
+        $scope.newNhanVien.maNhanVien = Number($scope.maNhanVien);
+        $scope.newNhanVien.tenNhanVien = $scope.tenNhanVien;
+        $scope.newNhanVien.chucVu = $scope.chucVu;
+        $scope.newNhanVien.ngaySinh = $filter('date')($scope.ngaySinh, 'yyyy-MM-dd');
+        $scope.newNhanVien.diaChi = $scope.diaChi;
+        $scope.newNhanVien.soDienThoai = $scope.soDienThoai;
+
+        if ($scope.submit === "Thêm") {
+            $http({
+                method: 'POST',
+                url: current_url + '/api/NhanVien/create-NhanVien',
+                data: $scope.newNhanVien,
+            }).then(function (response) {
+                var isDuplicate = $scope.listNhanVien.some(function (NhanVien) {
+                    return NhanVien.maNhanVien === $scope.maNhanVien;
+                });
+
+                if (isDuplicate) {
+                    $scope.error = 'Mã nhân viên đã tồn tại. Vui lòng chọn mã nhân viên khác.';
+                    return;
+                } else {
+                    $scope.error = '';
+                }
+                $scope.listNhanVien.push(response.data);
+                $scope.LoadListNhanVien();
+                $scope.newNhanVien = {};
+                alert('Thêm nhân viên thành công!');
+            });
+        }
+        else if ($scope.submit === "Lưu") {
+            $http({
+                method: 'PUT',
+                url: current_url + '/api/NhanVien/update-NhanVien/',
+                data: $scope.newNhanVien,
+            }).then(function () {
+                $scope.LoadListNhanVien();
+                alert('Cập nhật nhân viên thành công!');
+                loaddefault();
+            }).catch(function (error) {
+                console.error('Error:', error);
+            });
+        }
+    };
+
+    // hàm sửa thông tin nhân viên
+    $scope.btneditNV = function (maNhanVien) {
+        $scope.submit = "Lưu";
+        $scope.updateNhanVien = $scope.listNhanVien.find(function (NhanVien) {
+            return NhanVien.maNhanVien === maNhanVien;
+        });
+
+        // Không cho sửa đổi mã
+        $scope.isReadOnly = true;
+
+        // Gán giá trị của updateNhanVien vào các biến
+        $scope.maNhanVien = $scope.updateNhanVien.maNhanVien;
+        $scope.tenNhanVien = $scope.updateNhanVien.tenNhanVien;
+        $scope.chucVu = $scope.updateNhanVien.chuVu;
+        $scope.ngaySinh = new Date($scope.updateNhanVien.ngaySinh);
+        $scope.diaChi = $scope.updateNhanVien.diaChi;
+        $scope.soDienThoai = $scope.updateNhanVien.soDienThoai;
+
+        // Focus bắt đàu vào tên nhân viên khi click nút sửa
+        document.getElementById('tenNhanVien').focus();
+    };
+
+    //Hàm xóa nhân viên
+    $scope.btndeleteNV = function (maNhanVien) {
+        loaddefault();
+        var result = confirm("Bạn có thực sự muốn xóa không?");
+        if (result) {
+            $http({
+                method: 'DELETE',
+                url: current_url + '/api/NhanVien/delete-NhanVien/' + maNhanVien,
+            }).then(function () {
+                $scope.LoadListNhanVien();
+                alert('Xóa thành công!');
+            }).catch(function (error) {
+                console.error('Error:', error);
+            });
+        }
+    };
+
+    //Search nhân viên
+    $scope.searchNhanVien = function () {
+        if (!$scope.ten_NhanVien) {
+            $scope.error1 = 'Vui lòng nhập thông tin tìm kiếm!';
+            return;
+        } else {
+            $scope.error1 = '';
+        }
+
+        var formData = {
+            page: 1,
+            pageSize: 10,
+            ten_NhanVien: $scope.ten_NhanVien,
+        };
+
+        $http({
+            method: 'POST',
+            url: current_url + '/api/NhanVien/search-NhanVien',
+            data: formData,
+        }).then(function (response) {
+            $scope.listNhanVien = response.data.data;
+        }).catch(function (error) {
+            console.error('Error:', error);
+        });
+    };
+
+    // Hàm đặt trạng thái về ban đầu
+    function loaddefault() {
+        $scope.submit = "Thêm";
+        $scope.maNhanVien = null;
+        $scope.tenNhanVien = null;
+        $scope.chucVu = null;
+        $scope.ngaySinh = null;
+        $scope.diaChi = null;
+        $scope.soDienThoai = null;
+    };
+
+    //Hàm có chức năng tải lại dữ liệu trang tối đa 10 bản ghi hiển thị trên bảng
+    function updatelistNhanVien() {
+        var startIndex = ($scope.currentPage - 1) * $scope.itemsPerPage;
+        var endIndex = Math.min(startIndex + $scope.itemsPerPage, $scope.listNhanVien.length);
+        $scope.listNhanVien = $scope.listNhanVien.slice(startIndex, endIndex);
+    };
+
+    //Các hàm gọi sử dụng
+    $scope.LoadListNhanVien();
+});
+
+// QUẢN LÝ HÓA ĐƠN BÁN

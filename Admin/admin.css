@@ -96,6 +96,24 @@ header .logo img {
     padding: 20px 0px 10px 0px;
     text-align: center;
 }
+.right-admin-content>input{
+    height: 30px;
+    width: 200px;
+    text-align: center;
+}
+.right-admin-content button{
+    height: 30px;
+    width: 80px;
+    background-color: brown;
+    border: none;
+    color: white;
+    
+}
+.right-admin-content button:hover{
+    background-color: transparent;
+    border: 1px solid brown;
+    color: brown;
+}
 .pagination{
     float: right;
     margin-right: 50px;
@@ -123,8 +141,17 @@ form{
 .right-admin-content-category_add input {
     height: 30px;
     width: 200px;
-    padding-left: 12px;
     margin-top: 20px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+.right-admin-content-category_add select {
+    height: 30px;
+    width: 200px;
+    margin-top: 20px;
+    margin-left: 5px;
+    text-align: center;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {

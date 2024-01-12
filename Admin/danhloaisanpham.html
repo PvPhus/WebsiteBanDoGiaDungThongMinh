@@ -78,8 +78,16 @@
         <div class="right-admin-content" ng-app="APP-LSP" ng-controller="Controller-LSP">
             <h1>QUẢN LÝ LOẠI SẢN PHẨM</h1>
             <div class="right-admin-content-category_add">
+                <input type="text" ng-model="ten_loaisanpham" placeholder="Nhập tên loại sản phẩm">           
+                <button ng-click="searchCategory()">Tìm kiếm</button>
+                <div ng-show="error1"
+                    style="color: red; width: auto; margin: 30px 0px 0px 10px; height:auto; width: auto;">
+                    {{error1}}
+                </div>
+            </div>
+            <div class="right-admin-content-category_add">
                 <form id="categoryForm" ng-submit="addCategory()">
-                    <input type="number" id="maLoai" ng-model="maLoai" placeholder="Nhập mã loại">
+                    <input type="number" id="maLoai" ng-model="maLoai" placeholder="Nhập mã loại" ng-readonly="isReadOnly">
                     <input type="text" id="tenLoai" ng-model="tenLoai" placeholder="Nhập tên loại sản phẩm">
                     <input type="number" id="soLuongLoaiTon" ng-model="soLuongLoaiTon" placeholder="Nhập số lượng loại tồn">
                     <button style="margin:20px 5px 0px 10px" type="submit">{{submit}}</button>

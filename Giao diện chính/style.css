@@ -253,7 +253,7 @@ header {
     display: flex;
 }
 
-.product-type .name-product-type img {
+.product-type .name-Product-type img {
     background-color: rgb(255, 94, 83);
     padding: 5px;
     width: 100%;
@@ -266,7 +266,7 @@ header {
     transition: transform 0.3s;
 }
 
-.name-product-type .img-zoom:hover {
+.name-Product-type .img-zoom:hover {
     transform: scale(0.95);
 }
 
@@ -367,7 +367,7 @@ header {
 }
 
 .smart-product-type2 .smart-products-info {
-    flex: 15%;
+    flex: 18%;
     padding: 20px;
 
 }

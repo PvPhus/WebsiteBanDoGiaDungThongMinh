@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <title>Gia Dụng Plus</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../Admin/anguler.min.js">
+    <script src="../Giao diện chính/home.js"></script>
 </head>
 
 <body>
@@ -29,18 +29,19 @@
             <div class="function">
                 <div class="logo">
                     <a href="../Giao diện chính/index.html">
-                        <img src="images/logo-web.webp" alt="Trang Chu">
+                        <img class="img-product" src="images/logo-web.webp" alt="Trang Chu">
                     </a>
                 </div>
                 <div class="search-box" ng-app="myApp" ng-controller="SearchController">
                     <li>
-                        <input type="text" class="search-input" ng-model="searchQuery" placeholder="Bạn muốn tìm gì, gõ vào đây...">
+                        <input type="text" class="search-input" ng-model="searchQuery"
+                            placeholder="Bạn muốn tìm gì, gõ vào đây...">
                         <button class="fa fa-search search-button" ng-click="searchProducts()"></button>
                     </li>
                 </div>
                 <div class="refund">
                     <a href="../ProductDetails/ProductDetails.html">
-                        <img src="images/BaoHanh.jpg" alt="">
+                        <img class="img-product" src="images/BaoHanh.jpg" alt="">
                     </a>
                 </div>
                 <div class="cart">
@@ -51,7 +52,7 @@
                     <div class="cart-icon">
                         <a href="../Cart/cart.html">
                             <span class="icon">
-                                <img src="images/giohang.webp" alt="">
+                                <img class="img-product" src="images/giohang.webp" alt="">
                             </span>
                             <span class="count-products">0</span>
                         </a>
@@ -65,7 +66,8 @@
                         <li><a href="../Giao diện chính/kegiavithongminh/menu.html">Kệ Gia Vị Thông Minh</a></li>
                         <li><a href="../Giao diện chính/kechendanang/menu.html">Kệ Chén Đa Năng</a></li>
                         <li><a href="../Giao diện chính/kelovisongdanang/menu.html">Kệ Lò Vi Sóng Đa Năng</a></li>
-                        <li><a href="../Giao diện chính/hopdunggongangtuquanao/menu.html">Hộp & Ống Đựng Đũa Thông Minh</a>
+                        <li><a href="../Giao diện chính/hopdunggongangtuquanao/menu.html">Hộp & Ống Đựng Đũa Thông
+                                Minh</a>
                         </li>
                         <li><a href="../Giao diện chính/hopdungtreogiayvesinh/menu.html">Phụ Kiện Nhà Bếp Thông Minh</a>
                         </li>
@@ -85,7 +87,8 @@
                 <li><a>ĐỒ DÙNG GỌN GÀNG NHÀ CỬA</a>
                     <ul class="sub-menu">
                         <li><a href="../Giao diện chính/hopkedung/menu.html">Hộp & Kệ Đựng </a></li>
-                        <li><a href="../Giao diện chính/hopdunggongangtuquanao/menu.html">Đồ Dùng Gọn Gàng Tủ Quần Áo</a>
+                        <li><a href="../Giao diện chính/hopdunggongangtuquanao/menu.html">Đồ Dùng Gọn Gàng Tủ Quần
+                                Áo</a>
                         </li>
                         <li><a href="../Giao diện chính/kechendanang/menu.html">Kệ Đưng Máy Sấy Tóc</a></li>
                         <li><a href="../Giao diện chính/kelovisongdanang/menu.html">Đồ Dùng Vệ Sinh Nhà Cửa</a></li>
@@ -132,22 +135,22 @@
         <div class="featured-product">
             <div style="margin-left: 30px; margin-right: 30px;">
                 <div class="product-type">
-                    <div class="name-product-type">
+                    <div class="name-Product-type">
                         <a href="../ProductDetails/ProductDetails.html">
                             <img class="img-zoom" src="images/gongangnhacua.webp" alt="Gọn gàng nhà cửa">
                         </a>
                     </div>
-                    <div class="name-product-type">
+                    <div class="name-Product-type">
                         <a href="../ProductDetails/ProductDetails.html">
                             <img class="img-zoom" src="images/trangtrinhacua.webp" alt="Trang trí nhà cửa">
                         </a>
                     </div>
-                    <div class="name-product-type">
+                    <div class="name-Product-type">
                         <a href="../ProductDetails/ProductDetails.html">
                             <img class="img-zoom" src="images/phongtam&wc.webp" alt="Phòng tắm & WC">
                         </a>
                     </div>
-                    <div class="name-product-type">
+                    <div class="name-Product-type">
                         <a href="../ProductDetails/ProductDetails.html">
                             <img class="img-zoom" src="images/bep&phongan.webp" alt="Bếp & Phòng ăn">
                         </a>
@@ -226,11 +229,12 @@
                         </div>
                     </div>
                     <div class="smart-product-type2">
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails1.html"><img src="images/longbandanang.webp" alt="">
-                                <h4>Lồng bàn đa năng giữ nhiệt</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-product"
+                                    src="images/longbandanang.webp" alt="">
+                                <h4 class="name-Product">Lồng bàn đa năng giữ nhiệt</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 300.000đ</h5>
+                            <h5 class="priceProduct">300.000đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -240,12 +244,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails.html"><img src="images/tamchanmatbepgas.webp"
-                                    alt="">
-                                <h4>Tấm chắn mặt bếp gas</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-product"
+                                    src="images/tamchanmatbepgas.webp" alt="">
+                                <h4 class="name-Product">Tấm chắn mặt bếp gas</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -255,12 +259,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails2.html"><img src="images/tamchandauchangio.webp"
-                                    alt="">
-                                <h4>Tấm chắn đầu chắn gió</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                    src="images/tamchandauchangio.webp" alt="">
+                                <h4 class="name-Product">Tấm chắn đầu chắn gió</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -270,12 +274,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails.html"><img src="images/thungractreocanhtubep.webp"
-                                    alt="">
-                                <h4>Thùng rác treo cạnh bếp</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                    src="images/thungractreocanhtubep.webp" alt="">
+                                <h4 class="name-Product">Thùng rác treo cạnh bếp</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -285,11 +289,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails.html"><img src="images/kedeamtra.webp" alt="">
-                                <h4>Khay trà nhựa hiện đại</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                    src="images/kedeamtra.webp" alt="">
+                                <h4 class="name-Product">Khay trà nhựa hiện đại</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -299,12 +304,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails.html"><img src="images/kededaothiadua.webp"
-                                    alt="">
-                                <h4>Kệ để dao thớt và đũa</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                    src="images/kededaothiadua.webp" alt="">
+                                <h4 class="name-Product">Kệ để dao thớt và đũa</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -314,12 +319,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails.html"><img src="images/lothuytinhdungnuoc.webp"
-                                    alt="">
-                                <h4>Lọ thủy tinh dựng dầu ăn & nước mắm</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                    src="images/lothuytinhdungnuoc.webp" alt="">
+                                <h4 class="name-Product">Lọ thủy tinh dựng dầu ăn & nước mắm</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -329,11 +334,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails.html"><img src="images/kedecocnuoc.webp" alt="">
-                                <h4>Khay kệ nhựa úp ly cao cấp</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                    src="images/kedecocnuoc.webp" alt="">
+                                <h4 class="name-Product">Khay kệ nhựa úp ly cao cấp</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -343,12 +349,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails.html"><img src="images/thunggaothongminh.webp"
-                                    alt="">
-                                <h4>Thùng đựng gạo thông minh</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                    src="images/thunggaothongminh.webp" alt="">
+                                <h4 class="name-Product">Thùng đựng gạo thông minh</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -358,12 +364,12 @@
                                 <span class="sold">Đã bán 15</span>
                             </div>
                         </div>
-                        <div ng-repeat="product in searchResults" class="smart-products-info">
-                            <a href="../ProductDetails/ProductDetails.html"><img src="images/bochenbatdiasucaocap.webp"
-                                    alt="">
-                                <h4>Bộ đồ ăn chén bát cao cấp</h4>
+                        <div onclick="ProductDetail()" class="smart-products-info">
+                            <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                    src="images/bochenbatdiasucaocap.webp" alt="">
+                                <h4 class="name-Product">Bộ đồ ăn chén bát cao cấp</h4>
                             </a>
-                            <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                            <h5 class="priceProduct">200.200đ</h5>
                             <div class="vote">
                                 <i class="votestar stars"></i>
                                 <i class="votestar stars"></i>
@@ -385,12 +391,12 @@
                             </div>
                         </div>
                         <div class="smart-product-type2">
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kechunhatnhomdantuong.webp" alt="">
-                                    <h4>Kệ Chữ Nhật Nhôm Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Chữ Nhật Nhôm Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -400,12 +406,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdunggiayvesinh.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Giấy Vệ Sinh</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdunggiayvesinh.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Giấy Vệ Sinh</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -415,12 +421,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kedungxaphong.webp"
-                                        alt="">
-                                    <h4>Kệ Đựng Xà Phòng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kedungxaphong.webp" alt="">
+                                    <h4 class="name-Product">Kệ Đựng Xà Phòng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -430,12 +436,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechunhatdantuong.webp"
-                                        alt="">
-                                    <h4>Kệ Chữ Nhật Dấn Tường</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechunhatdantuong.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chữ Nhật Dấn Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -445,12 +451,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kedanangdantuong.webp"
-                                        alt="">
-                                    <h4>Kệ Đa Năng Dán Tường</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kedanangdantuong.webp" alt="">
+                                    <h4 class="name-Product">Kệ Đa Năng Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -472,12 +478,12 @@
                             </div>
                         </div>
                         <div class="smart-product-type2">
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechiangantu.webp"
-                                        alt="">
-                                    <h4>Kệ Chia Ngăn Tủ</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechiangantu.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chia Ngăn Tủ</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -487,12 +493,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdungdopicnic.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Đồ Picnic</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdungdopicnic.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Đồ Picnic</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -502,12 +508,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdungdodanang.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Đồ Đa Năng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdungdodanang.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Đồ Đa Năng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -517,12 +523,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdunglego.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Lego</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdunglego.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Lego</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -532,12 +538,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kedemaysaytocdantuong.webp" alt="">
-                                    <h4>Kệ Để Máy Sấy Tóc Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Để Máy Sấy Tóc Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -560,12 +566,12 @@
                             </div>
                         </div>
                         <div class="smart-product-type2">
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechiangantu.webp"
-                                        alt="">
-                                    <h4>Kệ Chia Ngăn Tủ</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechiangantu.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chia Ngăn Tủ</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -575,12 +581,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdungdopicnic.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Đồ Picnic</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdungdopicnic.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Đồ Picnic</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -590,12 +596,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdungdodanang.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Đồ Đa Năng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdungdodanang.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Đồ Đa Năng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -605,12 +611,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdunglego.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Lego</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdunglego.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Lego</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -620,12 +626,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kedemaysaytocdantuong.webp" alt="">
-                                    <h4>Kệ Để Máy Sấy Tóc Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Để Máy Sấy Tóc Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -635,12 +641,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechiangantu.webp"
-                                        alt="">
-                                    <h4>Kệ Chia Ngăn Tủ</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechiangantu.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chia Ngăn Tủ</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -650,12 +656,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdungdopicnic.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Đồ Picnic</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdungdopicnic.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Đồ Picnic</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -665,12 +671,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdungdodanang.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Đồ Đa Năng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdungdodanang.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Đồ Đa Năng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -680,12 +686,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdunglego.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Lego</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdunglego.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Lego</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -695,12 +701,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kedemaysaytocdantuong.webp" alt="">
-                                    <h4>Kệ Để Máy Sấy Tóc Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Để Máy Sấy Tóc Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -710,12 +716,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechiangantu.webp"
-                                        alt="">
-                                    <h4>Kệ Chia Ngăn Tủ</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechiangantu.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chia Ngăn Tủ</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -725,12 +731,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdungdopicnic.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Đồ Picnic</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdungdopicnic.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Đồ Picnic</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -740,12 +746,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdungdodanang.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Đồ Đa Năng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdungdodanang.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Đồ Đa Năng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -755,12 +761,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdunglego.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Lego</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdunglego.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Lego</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -770,12 +776,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kedemaysaytocdantuong.webp" alt="">
-                                    <h4>Kệ Để Máy Sấy Tóc Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Để Máy Sấy Tóc Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -785,12 +791,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechiangantu.webp"
-                                        alt="">
-                                    <h4>Kệ Chia Ngăn Tủ</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechiangantu.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chia Ngăn Tủ</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -800,12 +806,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdungdopicnic.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Đồ Picnic</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdungdopicnic.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Đồ Picnic</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -815,12 +821,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdungdodanang.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Đồ Đa Năng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdungdodanang.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Đồ Đa Năng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -830,12 +836,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdunglego.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Lego</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdunglego.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Lego</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -845,12 +851,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kedemaysaytocdantuong.webp" alt="">
-                                    <h4>Kệ Để Máy Sấy Tóc Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Để Máy Sấy Tóc Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -860,12 +866,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechiangantu.webp"
-                                        alt="">
-                                    <h4>Kệ Chia Ngăn Tủ</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechiangantu.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chia Ngăn Tủ</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -875,12 +881,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdungdopicnic.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Đồ Picnic</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdungdopicnic.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Đồ Picnic</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -890,12 +896,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdungdodanang.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Đồ Đa Năng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdungdodanang.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Đồ Đa Năng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -905,12 +911,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdunglego.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Lego</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdunglego.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Lego</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -920,12 +926,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kedemaysaytocdantuong.webp" alt="">
-                                    <h4>Kệ Để Máy Sấy Tóc Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Để Máy Sấy Tóc Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -935,12 +941,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechiangantu.webp"
-                                        alt="">
-                                    <h4>Kệ Chia Ngăn Tủ</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechiangantu.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chia Ngăn Tủ</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -950,12 +956,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdungdopicnic.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Đồ Picnic</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdungdopicnic.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Đồ Picnic</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -965,12 +971,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdungdodanang.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Đồ Đa Năng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdungdodanang.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Đồ Đa Năng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -980,12 +986,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/thungdunglego.webp"
-                                        alt="">
-                                    <h4>Thùng Đựng Lego</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/thungdunglego.webp" alt="">
+                                    <h4 class="name-Product">Thùng Đựng Lego</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -995,12 +1001,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kedemaysaytocdantuong.webp" alt="">
-                                    <h4>Kệ Để Máy Sấy Tóc Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Để Máy Sấy Tóc Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -1010,12 +1016,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
                                         src="images/kechunhatnhomdantuong.webp" alt="">
-                                    <h4>Kệ Chữ Nhật Nhôm Dán Tường</h4>
+                                    <h4 class="name-Product">Kệ Chữ Nhật Nhôm Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -1025,12 +1031,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/hopdunggiayvesinh.webp"
-                                        alt="">
-                                    <h4>Hộp Đựng Giấy Vệ Sinh</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/hopdunggiayvesinh.webp" alt="">
+                                    <h4 class="name-Product">Hộp Đựng Giấy Vệ Sinh</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -1040,12 +1046,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kedungxaphong.webp"
-                                        alt="">
-                                    <h4>Kệ Đựng Xà Phòng</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kedungxaphong.webp" alt="">
+                                    <h4 class="name-Product">Kệ Đựng Xà Phòng</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -1055,12 +1061,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kechunhatdantuong.webp"
-                                        alt="">
-                                    <h4>Kệ Chữ Nhật Dấn Tường</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kechunhatdantuong.webp" alt="">
+                                    <h4 class="name-Product">Kệ Chữ Nhật Dấn Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -1070,12 +1076,12 @@
                                     <span class="sold">Đã bán 15</span>
                                 </div>
                             </div>
-                            <div ng-repeat="product in searchResults" class="smart-products-info">
-                                <a href="../ProductDetails/ProductDetails.html"><img src="images/kedanangdantuong.webp"
-                                        alt="">
-                                    <h4>Kệ Đa Năng Dán Tường</h4>
+                            <div onclick="ProductDetail()" class="smart-products-info">
+                                <a href="../ProductDetails/ProductDetails.html"><img class="img-ProductDetail"
+                                        src="images/kedanangdantuong.webp" alt="">
+                                    <h4 class="name-Product">Kệ Đa Năng Dán Tường</h4>
                                 </a>
-                                <h5 class="product-price">150.000đ ~ 200.200đ</h5>
+                                <h5 class="priceProduct">200.200đ</h5>
                                 <div class="vote">
                                     <i class="votestar stars"></i>
                                     <i class="votestar stars"></i>
@@ -1176,31 +1182,31 @@
                 lại những giá trị thiết thực cho xã hội, khách hàng, nhân viên & đối tác.
             </h5>
             <br><br><br><br>
-            <h4 style="font-weight: normal;">Kênh mạng xã hội của <b>Gia Dụng Plus</b></h4> <br>
+            <h4 class="name-Product" style="font-weight: normal;">Kênh mạng xã hội của <b>Gia Dụng Plus</b></h4> <br>
             <div class="KenhXaHoi">
                 <div class="icon">
                     <a href="https://www.facebook.com/giadungplus/">
-                        <img src="images/icon-facebook.png" alt="Facebook">
+                        <img class="img-ProductDetail" src="images/icon-facebook.png" alt="Facebook">
                     </a>
                 </div>
                 <div class="icon">
                     <a href="">
-                        <img src="images/icon-zalo.png" alt="Zalo">
+                        <img class="img-ProductDetail" src="images/icon-zalo.png" alt="Zalo">
                     </a>
                 </div>
                 <div class="icon">
                     <a href="">
-                        <img src="images/icon-tiktok.png" alt="TikTok">
+                        <img class="img-ProductDetail" src="images/icon-tiktok.png" alt="TikTok">
                     </a>
                 </div>
                 <div class="icon">
                     <a href="https://www.instagram.com/giadungplus/">
-                        <img src="images/icon-instagram.png" alt="Instagram">
+                        <img class="img-ProductDetail" src="images/icon-instagram.png" alt="Instagram">
                     </a>
                 </div>
                 <div class="icon">
                     <a href="">
-                        <img src="images/icon-telegram.png" alt="Telegram">
+                        <img class="img-ProductDetail" src="images/icon-telegram.png" alt="Telegram">
                     </a>
                 </div>
             </div>
@@ -1209,4 +1215,3 @@
 </footer>
 
 </html>
-<script type="module" src="home.js"></script>

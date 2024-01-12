@@ -34,11 +34,21 @@
         <div class="right-admin-content" ng-app="APP-KH" ng-controller="Controller-KH">
             <h1>QUẢN LÝ KHÁCH HÀNG</h1>
             <div class="right-admin-content-category_add">
+                <input type="text" ng-model="ten_khachhang" placeholder="Nhập tên khách hàng">
+                <input type="text" ng-model="dia_chi" placeholder="Nhập địa chỉ khách hàng">
+                <button ng-click="searchKhachHang()">Tìm kiếm</button>
+                <div ng-show="error1"
+                    style="color: red; width: auto; margin: 30px 0px 0px 10px; height:auto; width: auto;">
+                    {{error1}}
+                </div>
+            </div>
+            <div class="right-admin-content-category_add">
                 <form id="KhachHangFrom" ng-submit="addKhachHang()">
-                    <input type="number" id="maKhachHang" ng-model="maKhachHang" placeholder="Nhập mã khách hàng">
-                    <input type="text" id="tenKhachHang" ng-model="tenKhachHang" placeholder="Nhập tên khách hang">
-                    <input type="text" id="diaChi" ng-model="diaChi" placeholder="Địa chỉ">
-                    <input type="text" id="soDienThoai" ng-model="soDienThoai" placeholder="Số điện thoại" only-numbers>
+                    <input type="number" id="maKhachHang" ng-model="maKhachHang" placeholder="Nhập mã khách hàng" ng-readonly="isReadOnly">
+                    <input type="text" id="tenKhachHang" ng-model="tenKhachHang" placeholder="Nhập tên khách hàng">
+                    <input type="text" id="diaChi" ng-model="diaChi" placeholder="Nhập địa chỉ">
+                    <input type="text" id="soDienThoai" ng-model="soDienThoai" placeholder="Nhập số điện thoại"
+                        only-numbers>
                     <button type="submit">{{submit}}</button>
                 </form>
                 <div ng-show="error"

@@ -46,10 +46,10 @@
         <div class="right-admin-content" ng-app="APP-SP" ng-controller="Controller-SP">
             <!-- Các trường và nút thêm sản phẩm -->
             <h1>QUẢN LÝ SẢN PHẨM</h1>
-            <div class="right-admin-content-category_add">         
+            <div class="right-admin-content-category_add">           
                 <form ng-submit="addProduct()">
                     <!-- Các trường nhập liệu -->
-                    <input type="number" ng-model="maSanPham" placeholder="Mã sản phẩm" style="width: 120px;">
+                    <input type="number" ng-model="maSanPham" placeholder="Mã sản phẩm" style="width: 120px;" ng-readonly="isReadOnly">
                     <input type="text" id="nameProduct" ng-model="tenSanPham" placeholder="Tên sản phẩm">
                     <select style="width:150px;height:30px;margin-top: 20px;" ng-model="tenLoai"
                         ng-options="category for category in displayedCategories"></select>
@@ -57,12 +57,12 @@
                     <input type="text" ng-model="moTa" placeholder="Mô tả">
                     <input type="file" file="file" id="image-input" ng-model="imageData" ng-change="showImagePreview()"
                         accept="image/*">
-                    <!-- Sử dụng ng-click để gọi hàm addProduct -->
                     <button type="submit">{{submit}}</button>
                 </form>
             </div>
-            <div ng-show="error"  style="color: red; width: auto; margin: 30px 0px 0px 10px; height: auto;width: auto;">{{error}}</div>
-           
+            <div ng-show="error" style="color: red; width: auto; margin: 30px 0px 0px 10px; height: auto;width: auto;">
+                {{error}}</div>
+
             <!-- Tiêu đề và danh sách sản phẩm -->
             <h1>DANH SÁCH SẢN PHẨM</h1>
             <div class="right-admin-content-category_list">
@@ -98,7 +98,6 @@
                     </tbody>
                 </table>
             </div>
-
             <!-- Phân trang -->
             <div class="pagination">
                 <button ng-click="prevPage()" ng-disabled="currentPage === 1">Back</button>

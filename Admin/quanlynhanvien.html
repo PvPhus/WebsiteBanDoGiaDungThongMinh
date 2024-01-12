@@ -6,33 +6,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Quản Trị</title>
     <link rel="stylesheet" href="admin.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="../AngularJS/global.js"></script>
+    <script src="../Admin/admin.js"></script>
 </head>
 
 <body>
     <header>
-        <div class="logo"><a href="../Giao diện chính/index.html"><img src="../Admin/images/logo-web.webp" alt=""></a></div>
-        <div class="menu">           
+        <div class="logo"><a href="../Giao diện chính/index.html"><img src="../Admin/images/logo-web.webp" alt=""></a>
+        </div>
+        <div class="menu">
             <ul>
                 <li><a href="">Thông Báo</a></li>
                 <li><a href="../Admin/danhloaisanpham.html">Quản Lý Sản Phẩm</a></li>
                 <li><a href="../Admin/quanlydondathang.html">Quản Lý Đơn Hàng Bán</a></li>
-                <li><a href="../Admin/quanlydonhangnhap.html">Quản Lý Đơn Hàng Nhập</a></li>   
+                <li><a href="../Admin/quanlydonhangnhap.html">Quản Lý Đơn Hàng Nhập</a></li>
                 <li><a href="../Admin/quanlynhanvien.html">Quản Lý Nhân Viên</a></li>
-                <li><a href="../Admin/quanlykhachhang.html">Quản Lý Khách Hàng</a></li>                                              
+                <li><a href="../Admin/quanlykhachhang.html">Quản Lý Khách Hàng</a></li>
                 <li><a href="../Login/login.html">Đăng Xuất</a></li>
-            </ul>           
+            </ul>
         </div>
     </header>
     <section class="admin-content">
-        <div class="left-admin-content"></div>  
-        <div class="right-admin-content">
+        <div class="left-admin-content"></div>
+        <div class="right-admin-content" ng-app="APP-NV" ng-controller="Controller-NV">
             <h1>QUẢN LÝ NHÂN VIÊN</h1>
-            <div class="right-admin-content-category_add">               
+            <div class="right-admin-content-category_add">
+                <input type="text" ng-model="ten_NhanVien" placeholder="Nhập tên nhân viên">
+                <button ng-click="searchNhanVien()">Tìm kiếm</button>
+                <div ng-show="error1"
+                    style="color: red; width: auto; margin: 30px 0px 0px 10px; height:auto; width: auto;">
+                    {{error1}}
+                </div>
+            </div>
+            <div class="right-admin-content-category_add" ng-submit="addNhanVien()">
                 <form action="" method="POST">
-                    <input type="text" name="" id="MaLSP" placeholder="Nhập mã loại">
-                    <input type="text" name="" id="TenLSP" placeholder="Nhập loại sản phẩm">
-                    <button onclick="AddLSP()" type="submit">Thêm</button>
+                    <input type="number" id="maNhanVien" ng-model="maNhanVien" placeholder="Nhập mã nhân viên"
+                        ng-readonly="isReadOnly">
+                    <input type="text" id="tenNhanVien" ng-model="tenNhanVien" placeholder="Nhập tên nhân viên">
+                    <select style="width: 150px; height: 30px; margin-top: 20px;" id="chucVu" ng-model="chucVu"
+                        ng-options="item for item in chucVuOptions" ng-init="chucVu = updateNhanVien.chucVu"></select>
+                    <input type="date" id="ngaySinh" ng-model="ngaySinh" ng-required="true">
+                    <input type="text" id="diaChi" ng-model="diaChi" placeholder="Nhập địa chỉ">
+                    <input type="text" id="soDienThoai" ng-model="soDienThoai" placeholder="Nhập số điện thoại"
+                        only-numbers>
+                    <button type="submit">{{submit}}</button>
                 </form>
+            </div>
+            <div ng-show="error" style="color: red; width: auto; margin: 30px 0px 0px 10px; height:auto; width: auto;">
+                {{error}}
             </div>
             <h1>DANH SÁCH THÔNG TIN NHÂN VIÊN</h1>
             <div class="right-admin-content-category_list">
@@ -40,26 +63,40 @@
                     <thead>
                         <tr>
                             <th>STT</th>
-                            <th>ID</th>
-                            <th>LOẠI SẢN PHẨM</th>
-                            <th>Tùy Biến</th>
+                            <th>MÃ NHÂN VIÊN</th>
+                            <th>TÊN NHÂN VIÊN</th>
+                            <th>CHỨC VỤ</th>
+                            <th>NGÀY SINH</th>
+                            <th>ĐỊA CHỈ</th>
+                            <th>SỐ ĐIỆN THOẠI</th>
+                            <th>TÙY BIẾN</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>Thong Minh</td>
-                            <td><button class="btnedit">Sửa</button> || <button class="btndelete">Xóa</button></td>
+                        <tr ng-repeat="NhanVien in listNhanVien">
+                            <td>{{$index + 1}}</td>
+                            <td>{{NhanVien.maNhanVien}}</td>
+                            <td>{{NhanVien.tenNhanVien}}</td>
+                            <td>{{NhanVien.chucVu}}</td>
+                            <td>{{NhanVien.ngaySinh}}</td>
+                            <td>{{NhanVien.diaChi}}</td>
+                            <td>{{NhanVien.soDienThoai}}</td>
+                            <td>
+                                <button ng-click="btneditNV(NhanVien.maNhanVien)">Sửa</button> ||
+                                <button ng-click="btndeleteNV(NhanVien.maNhanVien)">Xóa</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
+            <div class="pagination">
+                <button ng-click="prevPage()" ng-disabled="currentPage === 1">Back</button>
+                <span>{{currentPage}}</span>
+                <button ng-click="nextPage()" ng-disabled="currentPage === totalPages">Next</button>
+            </div>
         </div>
     </section>
-    <footer>
-
-    </footer>
+    <div id='mainDiv'></div>
 </body>
+
 </html>
-<script src="admin.js"></script>

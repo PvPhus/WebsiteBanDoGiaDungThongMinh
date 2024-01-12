@@ -1,3 +1,16 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Lấy thông tin sản phẩm từ localStorage
+    var selectedProduct = JSON.parse(localStorage.getItem('productdetail'))[0] || {};
+
+    // Hiển thị thông tin sản phẩm trên trang chi tiết
+    document.querySelector('.img-ProductDetail').src = selectedProduct.imgProduct;
+    document.querySelector('.name-Product').textContent = selectedProduct.nameProduct;
+    document.querySelector('.priceProduct').textContent = selectedProduct.priceProduct;
+
+    // Xóa thông tin sản phẩm khỏi localStorage sau khi sử dụng (tùy theo yêu cầu)
+    localStorage.removeItem('productdetail');
+});
+
 //tăng giảm số lượng sản phẩm
 const quantityInput = document.getElementById('quantity');
 
